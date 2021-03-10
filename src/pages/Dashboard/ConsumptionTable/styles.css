@@ -1,0 +1,181 @@
+#consumption-table-page {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+}
+
+#consumption-table-page .consumption-table-container {
+    width: 88%;
+
+    margin: 60px auto 0;
+}
+
+#consumption-table-page .consumption-table-container header {
+    display: flex;
+    align-items: center;
+
+    width: 686px;
+
+    margin: 0 120px 50px;
+}
+
+#consumption-table-page .consumption-table-container header .input-wrapper {
+    display: flex;
+    align-items: center;
+
+    padding: 4px 12px;
+
+    border-radius: 8px;
+
+    box-shadow: 0px 3px 8px 1px var(--border-primary-color);
+
+    transition: transform .2s;
+}
+
+#consumption-table-page .consumption-table-container .input-wrapper:hover {
+    transform: scale(1.02);
+    border-color: var(--primary-green);
+    box-shadow: 0px 0px 1px 2px var(--primary-green);
+}
+
+#consumption-table-page input {
+    width: 450px; 
+
+    font-size: 18px; 
+
+    margin-left: 15px;
+    padding: 12px;
+
+    border: none;
+    outline: none;
+}
+
+#consumption-table-page input:focus {
+    box-shadow: none;
+    border: 0;
+}
+
+#consumption-table-page .consumption-table-container header button .consumption-table-add-icon {
+    margin-right: 10px;
+}
+
+#consumption-table-page .consumption-table-container header button {
+    width: 200px;
+    
+    padding: 14px;
+    
+    background-color: #24c73ae3;
+    
+    font-size: 18px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0px 5px 7px 0px var(--third-green);
+    transition: background .2s;
+}
+
+#consumption-table-page .consumption-table-container header button:hover {
+    background-color: var(--third-green);
+}
+
+#consumption-table-page .loading {
+    width: 30%;
+    height: 300px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#consumption-table-page table {
+    width: 65%; 
+
+    margin: 0 auto 30px;
+
+    border-radius: 8px;
+    border-spacing: 0px;
+
+    box-shadow: 0px 6px 12px var(--shadow-color);
+
+}
+
+#consumption-table-page table th {
+    text-align: center;
+
+    padding: 14px;
+    
+    font-size: 20px;
+}
+
+#consumption-table-page table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+#consumption-table-page table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+#consumption-table-page table td {
+    text-align: center;
+     
+    padding:  14px; 
+
+    font-size: 18px;
+}
+
+#consumption-table-page table td .update-quantity-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#consumption-table-page table td button {
+    width: 115px;
+
+    padding: 14px;
+
+    background-color: var(--primary-green);
+
+    font-weight: 500;
+
+    transition: background .2s;
+}
+
+#consumption-table-page table td button:hover {
+    background-color: var(--third-green);
+}
+
+#consumption-table-page table td .delete-product-icon {
+    cursor: pointer;
+}
+
+#consumption-table-page table td .delete-product-icon:hover {
+    color: var(--primary-red);
+}
+
+#consumption-table-page table th:first-child, #consumption-table-page table td:first-child {
+    text-align: left;
+    width: 40%;
+
+    padding-left: 24px;
+}
+
+#consumption-table-page table tr:not(:first-child):hover {
+    background-color: rgba(240, 241, 240, 0.4);
+}
+
+#consumption-table-page table .header {
+    background-color: rgba(241, 240, 240, 0.5);
+}
+
+#consumption-table-page table .no-consumption {
+    width: 100%;
+    padding: 30px;
+
+    font-size: 18px;
+}

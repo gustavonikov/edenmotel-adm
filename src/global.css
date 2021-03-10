@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --title-color: #110f16;
+    --primary-black: #111010;
+    --primary-green: #24c73ae3;
+    --secondary-green: #34cb79;
+    --third-green: #2aa13ae3;
+    --border-primary-color: #d3d3d3;
+    --shadow-color: #00000040;
+    --primary-red: #db1d3d;
+    --secondary-red: #b4233b;
+    --orange: #fd8300;
+    --background-page: '#fff';
+}
+
+body {
+    font: 400 16px Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+input, button, textarea {
+    font: 400 16px Roboto, sans-serif;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0px 0px 1px 1px var(--primary-green);
+}
+
+h1, h2, h3 {
+   color: #110f16;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+
+    color: #fff;
+
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-weight: 600;
+    font-size: 16px;
+
+    color: #fff;
+}
+
+.swal-modal {
+    width: 350px;
+}
+
+.swal-modal .swal-title {
+    color: var(--primary-black);
+
+    font-size: 23px;
+}
+
+.swal-modal .swal-text {
+    font-size: 18px;
+}
+
+.swal-modal .swal-footer .swal-button-container button {
+    font-size: 16px;
+
+    transition: background .2s;
+}
+
+.swal-modal .swal-footer .swal-button-container .swal-button.swal-button--confirm {
+    background-color: var(--primary-green);
+}
+
+.swal-modal .swal-footer .swal-button-container .swal-button.swal-button--confirm:hover {
+    background-color: var(--third-green);
+}
+
+.swal-modal .swal-footer .swal-button-container .swal-button.swal-button--cancel {
+    background-color: var(--primary-red);
+    color: #fff;
+}
+
+.swal-modal .swal-footer .swal-button-container .swal-button.swal-button--cancel:hover {
+    background-color: var(--secondary-red);
+}
+
+@page {
+    margin: 0mm;
+}
+
+@media print {
+    #main-header {
+        display: none;
+    }
+
+    #report-page .app-sidebar {
+        display: none;
+    }
+
+    #report-page .report-container {
+        width: 100%;
+        margin: 0;
+    }
+
+    #report-page .report-container h1 {
+        display: none;
+    }
+
+    #report-page .report-container .report-content {
+        border: none;
+        padding: 0;
+    }
+
+    #history-page {
+        display: none;
+    }
+}

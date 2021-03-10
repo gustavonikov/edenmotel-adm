@@ -1,0 +1,28 @@
+.go-back {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--primary-black);
+
+    position: relative;
+}
+
+.go-back .arrow-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    color: #000;
+}
+
+.go-back .arrow-icon:hover {
+    color: var(--third-green);
+}
+
+.go-back h2 {
+    font-size: 26px;
+}

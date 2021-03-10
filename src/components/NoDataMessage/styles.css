@@ -1,0 +1,16 @@
+.no-data-container {
+    width: 600px;
+
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+.no-data-title {
+    margin-bottom: 20px;
+}
+
+.no-data-message {
+    margin-bottom: 50px;
+    font-size: 16px;
+}
+

@@ -1,0 +1,96 @@
+.modify-features-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modify-features-modal form {
+    width: 530px;
+    
+    background-color: #fff;
+
+    border-radius: 8px;
+
+    padding: 20px 30px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modify-features-modal form h2 {
+    margin-bottom: 25px;
+}
+
+.modify-features-modal form label {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 18px;
+
+    color: var(--primary-black);
+
+    margin-bottom: 25px;
+}
+
+.modify-features-modal form select {
+    margin-bottom: 25px;
+
+    font-size: 18px;
+}
+
+.modify-features-modal form select,
+.modify-features-modal form label input {
+    width: 230px;
+
+    margin-top: 5px;
+    padding: 12px;
+
+    border-radius: 10px;
+
+    outline: none;
+    border: 1px solid #b3aeae;
+}
+
+.modify-features-modal form label input:disabled {
+    background-color: #e8e8e8;
+}
+
+.modify-features-modal form .button-container {
+    width: 100%;
+
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modify-features-modal form  button {
+    width: 140px;
+    height: 50px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    border-radius: 6px;
+
+    transition: background .2s;
+}
+
+.modify-features-modal form button:first-child {
+    background-color: var(--primary-red);
+}
+
+.modify-features-modal form  button:first-child:hover {
+    background-color: var(--secondary-red);
+}
+
+.modify-features-modal form button:last-child {
+    background-color: var(--primary-green);
+}
+
+.modify-features-modal form button:last-child:hover {
+    background-color: var(--third-green);
+}

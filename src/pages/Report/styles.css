@@ -1,0 +1,39 @@
+#report-page {
+    background-color: var(--background-page);
+    min-height: 100vh;
+    display: flex;
+}
+
+.report-page-container {
+    margin: 80px auto;
+
+    width: 900px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.report-page-container h2 {
+    font-size: 24px;
+    font-weight: 500;
+
+    color: var(--primary-black);
+}
+
+.report-page-container button {
+    margin-top: 50px;
+
+    padding: 22px 34px;
+
+    font-size: 22px;
+
+    background: var(--primary-green);
+
+    box-shadow: inset 0 0 10px 1px var(--third-green), 0px 5px 10px 0px var(--third-green);
+    transition: background .2s;
+}
+
+.report-page-container button:hover {
+    background-color: var(--third-green);
+}

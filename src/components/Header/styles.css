@@ -1,0 +1,30 @@
+#main-header {
+    width: 100%;
+    background-color: rgba(241, 240, 240, 0.5);
+
+    padding: 30px 40px 30px 0px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#main-header img {
+    height: 120px;
+    width: 180px;
+
+    border-radius: 8px;
+
+    margin-left: 35px;
+}
+
+#main-header p {
+    font: 400 50px Merriweather, sans-serif;
+
+    color: #20a031fd; /* 2e8b57 */
+}
+
+#main-header span {
+    width: 180px;
+}

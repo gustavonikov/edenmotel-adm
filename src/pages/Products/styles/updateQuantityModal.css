@@ -1,0 +1,94 @@
+#update-quantity-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#update-quantity-modal > div:nth-child(1) {
+    background-color: rgba(0, 0, 0, 0.897)!important;
+}
+
+#update-quantity-modal .modal-container {
+    width: 430px;
+    height: 260px;
+    
+    background-color: #fff;
+
+    border-radius: 8px;
+
+    padding: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#update-quantity-modal .modal-container h2 {
+    font-size: 24px;
+}
+
+#update-quantity-modal .modal-container label {
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+#update-quantity-modal .modal-container strong {
+    font-size: 18px;
+
+    margin-right: 10px;
+}
+
+#update-quantity-modal .modal-container input {
+    width: 75px;
+
+    padding: 10px 3px 10px 10px;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    outline: none;
+    border: 1px solid #b3aeae;
+    border-radius: 10px;
+}
+
+#update-quantity-modal .modal-container input:focus {
+    border-color: rgba(36, 199, 58, 0.89);
+    box-shadow: 0px 0px 1px 1px rgba(36, 199, 58, 0.89);
+}
+
+#update-quantity-modal .modal-container .button-container {
+    width: 96%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#update-quantity-modal .modal-container button {
+    width: 140px;
+    height: 50px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    border-radius: 6px;
+    
+    transition: background .2s;
+}
+
+#update-quantity-modal .modal-container button:first-child {
+    background-color: var(--primary-red);
+}
+
+#update-quantity-modal .modal-container button:first-child:hover {
+    background-color: var(--secondary-red);
+}
+
+#update-quantity-modal .modal-container button:last-child {
+    background-color: var(--primary-green);
+}
+
+#update-quantity-modal .modal-container button:last-child:hover {
+    background-color: var(--third-green);
+}

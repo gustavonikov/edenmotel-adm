@@ -5,12 +5,12 @@
 }
 
 #dashboard-page .dashboard-container {
-    width: 80%;
+    width: 82%;
 
     margin: 30px auto;
     padding: 20px;
 
-    box-shadow: 0 4px 10px var(--shadow-color);
+    /* box-shadow: 0 4px 10px var(--shadow-color); */
 
     border-radius: 10px;
 
@@ -93,7 +93,7 @@
 
     width: 42%;
 
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 0 3px #969494;
 
     padding: 16px;
@@ -188,12 +188,13 @@
 }
 
 #dashboard-page .dashboard-container .dashboard-items .collected-from-consumption {
-    
-    margin-top: 150px;
+    margin-top: 140px;
+    margin-left: 10px;
+
     padding: 5px;
 
-    height: 200px;
-    width: 220px;
+    height: 210px;
+    width: 230px;
 
     display: flex;
     flex-direction: column;
@@ -214,7 +215,7 @@
 
     text-decoration: none;
 
-    width: 200px;
+    width: 100%;
 
     font-size: 18px;
     font-weight: 600;
@@ -237,6 +238,8 @@
     background-size: 100%;
     background-image: linear-gradient(to right, var(--orange), 40%, var(--primary-green));
     -webkit-text-fill-color: transparent;
+
+    margin-bottom: 6px;
 }
 
 #dashboard-page .dashboard-container .dashboard-items .table-link .go-to-icon {

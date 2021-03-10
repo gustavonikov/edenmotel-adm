@@ -86,17 +86,30 @@ export default function Dashboard() {
         return Object.assign(item, sweetSin[index])
     });
 
-    const products = [
-        { produto: 'PRESERVATIVO GRATUITO', quantidade: 100 },
-        { produto: 'AGUA MINERAL GRF 330ml', quantidade: 50 },
-        { produto: 'PRESERVATIVO', quantidade: 50 },
-        { produto: 'REFRIGERANTE LATA 300 ml', quantidade: 40 },
-        { produto: 'CHAMPANHE', quantidade: 28 },
-        { produto: 'CHOCOLATE BARRA', quantidade: 25 },
-        { produto: 'SANDUICHE', quantidade: 20 },
-        { produto: 'HAMBURGUER', quantidade: 18 },
-        { produto: 'BISCOITO', quantidade: 15 },
-        { produto: 'CAFE', quantidade: 10 },
+    const products1 = [
+        { produto: 'REFRIGERANTE LATA 300ML', quantidade: 100 },
+        { produto: 'AGUA MINERAL GRF 300ML', quantidade: 50 },
+        { produto: 'CERVEJA 450ML', quantidade: 50 },
+        { produto: 'SANDUICHE MISTO', quantidade: 40 },
+        { produto: 'CAFE', quantidade: 28 },
+        { produto: 'CHOCOLATE BARRA 210G', quantidade: 25 },
+        { produto: 'CHAMPANHE', quantidade: 20 },
+        { produto: 'HAMBURGUER X-TUDO', quantidade: 18 },
+        { produto: 'BISCOITO TRELOSO 10UN', quantidade: 15 },
+        { produto: 'TAPIOCA SIMPLES', quantidade: 10 },
+    ];
+
+    const products2 = [
+        { produto: 'REFRIGERANTE LATA 300ML', quantidade: 9 },
+        { produto: 'AGUA MINERAL GRF 300ML', quantidade: 8 },
+        { produto: 'CERVEJA 450ML', quantidade: 7 },
+        { produto: 'SANDUICHE MISTO', quantidade: 6 },
+        { produto: 'CAFE', quantidade: 5 },
+        { produto: 'CHOCOLATE BARRA 210G', quantidade: 4 },
+        { produto: 'CHAMPANHE', quantidade: 3 },
+        { produto: 'HAMBURGUER X-TUDO', quantidade: 2 },
+        { produto: 'BISCOITO TRELOSO 10UN', quantidade: 1 },
+        { produto: 'TAPIOCA SIMPLES', quantidade: 0 },
     ];
 
     const clientsPaymentPerType = [
@@ -138,7 +151,7 @@ export default function Dashboard() {
                 </div>
                 <div className="dashboard-items">
                     <div className="chart-container line-chart">
-                        <h2>Clientes por quarto</h2>
+                        <h2>Entradas por tipo de quarto</h2>
                         <ResponsiveContainer
                             height={340}
                             width="100%"
@@ -206,17 +219,17 @@ export default function Dashboard() {
                         <div className="infos">
                             <div className="info">
                                 <h3 className="paradise">Paraíso</h3>
-                                <p>300 pessoas</p>
+                                <p>300 entradas</p>
                                 <p>R$ 1.750,00 </p>
                             </div>
                             <div className="info">
-                                <h3 className="sweet-sin">Doce pecado</h3>
-                                <p>350 pessoas</p>
+                                <h3 className="sweet-sin">Doce Pecado</h3>
+                                <p>350 entradas</p>
                                 <p>R$ 2.250,00 </p>
                             </div>
                             <div className="info">
                                 <h3 className="total-clients">Total</h3>
-                                <p>650 pessoas</p>
+                                <p>650 entradas</p>
                                 <p>R$ 4.000,00 </p>
                             </div>
                         </div>
@@ -227,13 +240,13 @@ export default function Dashboard() {
                     <div className="chart-container">
                         <h2> Top 10 Produtos mais consumidos</h2>
                         <ResponsiveContainer
-                            height={300}
+                            height={310}
                             width="100%"
                         >
                             <BarChart
                                 layout="vertical"
                                 margin={{ top: 0, right: 10, left: 0, bottom: 0 }}
-                                data={products}
+                                data={products1}
                             >
                                 <CartesianGrid horizontal={false} />
                                 <XAxis
@@ -245,7 +258,7 @@ export default function Dashboard() {
                                     tickLine={false}
                                 />
                                 <YAxis
-                                    width={220}
+                                    width={230}
                                     type="category"
                                     dataKey="produto"
                                     tickLine={false}
@@ -260,10 +273,10 @@ export default function Dashboard() {
                     </div>
                     <div className="chart-container">
                         <h2> Top 10 Produtos menos consumidos </h2>
-                        <ResponsiveContainer height={300} width="100%">
+                        <ResponsiveContainer height={310} width="100%">
                             <BarChart
                                 layout="vertical"
-                                data={products}
+                                data={products2}
                                 margin={{ top: 0, right: 10, left: 0, bottom: 0 }}
                             >
                                 <CartesianGrid horizontal={false} />
@@ -277,7 +290,7 @@ export default function Dashboard() {
                                     tickLine={false}
                                 />
                                 <YAxis
-                                    width={220}
+                                    width={230}
                                     type="category"
                                     dataKey="produto"
                                     tickLine={false}

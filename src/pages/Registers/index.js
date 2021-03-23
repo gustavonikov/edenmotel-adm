@@ -6,17 +6,9 @@ import SideBar from '../../components/SideBar';
 import './styles.css';
 
 export default function Register() {
-    const asideActiveBars = {
-        dashboard: false,
-        products: false,
-        history: false,
-        registers: true,
-        report: false,
-    };
-
     return (
         <div id="registers-page">
-            <SideBar barsState={asideActiveBars} />
+            <SideBar />
 
             <div className="registers-page-container">
                 <h2>Clique na categoria em que você deseja adicionar ou modificar:</h2>

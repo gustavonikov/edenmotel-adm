@@ -1,6 +1,7 @@
 #history-page {
     background-color: var(--background-page);
     min-height: 100vh;
+    height: 100%;
     display: flex;
 }
 
@@ -54,7 +55,7 @@
 }
 
 #history-page .history-page-container a {
-    width: 41%;
+    width: 45%;
 
     align-self: flex-end;
 
@@ -81,21 +82,21 @@
 }
 
 #history-page .history-page-container button:hover {
-    transform: scale(1.04);
+    transform: scale(1.03);
     opacity: 0.75;
 }
 
 #history-page .history-page-container button .go-to-icon {
-    animation: leftToRight ease-in-out 1.3s infinite;
+    animation: leftToRightHistory ease-in-out 1.3s infinite;
 }
 
 #history-page .history-page-container button:hover .go-to-icon {
     animation: none;
 }
 
-@keyframes leftToRight {
+@keyframes leftToRightHistory {
     0% {
-        transform: translateX(-5px);
+        transform: translateX(-4px);
         opacity: 0;
     }
 

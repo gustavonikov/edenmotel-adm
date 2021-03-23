@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import { FiEdit } from 'react-icons/fi';
@@ -9,14 +9,39 @@ import SimpleLoader from '../../../components/SimpleLoader';
 import GoBack from "../../../components/GoBackHeader";
 import RegistersFeaturesPage from "../FeaturesPage";
 
+import { confirmAlert, errorAlert, successAlert } from '../../../utils/Alerts';
+import { adjustValue } from '../../../utils/adjustValue';
+
+import api from '../../../services/api';
+
 import './styles/main.css';
 import './styles/modal.css';
 
 export default function ModifyApartments() {
-    const [hasError, setHasError] = useState(false);
     const [apartments, setApartments] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [id, setId] = useState('');
+    const [number, setNumber] = useState('');
+    const [status, setStatus] = useState('');
+    const [type, setType] = useState('');
+    const [price, setPrice] = useState('');
+    const [overnight, setOvernight] = useState('');
+    const [extraHour, setExtraHour] = useState('');
     const [open, setOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [hasError, setHasError] = useState(false);
+
+    useEffect(() => {
+        api.get('/apartments')
+        .then((res) => {
+            setApartments(res.data);
+            setIsLoading(false);
+        })
+        .catch((error) => {
+            setHasError(true);
+            setIsLoading(false);
+            console.log(error)
+        });
+    }, [])
 
     function handleSearch() {
         let td; let i; let txtValue;
@@ -40,12 +65,61 @@ export default function ModifyApartments() {
         }
     }
 
-    function handleOpenModal() {
-        setOpen(true);
+    function closeModal() {
+        setOpen(false);
     }
 
-    function handleCloseModal() {
-        setOpen(false);
+    function updateApartment(ev) {
+        ev.preventDefault();
+
+        const apartment = {
+            id,
+            number,
+            type,
+            price,
+            status,
+            overnight,
+            extraHour
+        };
+        
+        api.put(`/apartments/${number}/${type}/${price}/${overnight}/${extraHour}`)
+        .then(() => {
+            successAlert('Apartamento alterado com sucesso!');
+
+            setApartments(apartments.map((apt) => {
+                if (apt.id === apartment.id) {
+                    return {
+                        ...apt, 
+                        ...apartment
+                    }
+                }
+                return apt;
+            }));
+            
+            closeModal();
+        })
+        .catch((error) => {
+            errorAlert('Não foi possível alterar os dados!');
+            console.log(error);
+
+            closeModal();
+        });
+
+    }
+
+    function deleteApartment(aptNumber) {
+        confirmAlert(`Deseja realmente excluir o Apartmento "${aptNumber}"?`, 'Essa ação não poderá ser revertida.')
+        .then((yes) => {
+            if (yes) {
+                api.delete(`/apartments/${aptNumber}`)
+                .then(() => {
+                    setApartments(apartments.filter(({ number }) => aptNumber !== number));
+                }).catch((error) => {
+                    errorAlert('Não foi possível deletar o apartamento!');
+                    console.log(error);
+                });
+            }
+        });
     }
 
     return (
@@ -85,76 +159,55 @@ export default function ModifyApartments() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* {
+                                    {
                                         apartments === 0 ?
                                             <p className="no-data">
                                                 Não há apartamentos.
                                             </p>
                                             :
-                                            apartments.map(({ id, number }) => {
+                                            apartments.map(({ id, number, status, type, value, overnight_stay, extra_hour }) => {
+                                                const typeOf = type === 'DOCE_PECADO' ? 'Doce Pecado' : 'Paraíso';
+                                                const statusOf = status === 'LIVRE' ? 'Livre' : 'Ocupado';
+                                                const adjustedPrice = adjustValue(value)
+                                                const adjustedOvernight = adjustValue(overnight_stay)
+                                                const adjustedExtraHour = adjustValue(extra_hour)
+
                                                 return (
                                                     <tr key={id}>
                                                         <td>{number}</td>
+                                                        <td className={status === 'LIVRE' ? 'available' : 'occupied'}>{statusOf}</td>
+                                                        <td>{typeOf}</td>
+                                                        <td>{adjustedPrice}</td>
+                                                        <td>{adjustedOvernight}</td>
+                                                        <td>{adjustedExtraHour}</td>
                                                         <td>
                                                             <FiEdit
                                                                 size={30}
                                                                 className="icon edit-icon"
-                                                                onClick={handleOpenModal}
+                                                                onClick={() => {
+                                                                    setId(id);
+                                                                    setNumber(number);
+                                                                    setType(type);
+                                                                    setPrice(adjustedPrice);
+                                                                    setOvernight(adjustedOvernight);
+                                                                    setExtraHour(adjustedExtraHour);
+                                                                    setStatus(status)
+
+                                                                    setOpen(true);
+                                                                }}
                                                             />
                                                         </td>
                                                         <td>
                                                             <MdDelete
-                                                                className="print-icon"
+                                                                className="icon delete-icon"
                                                                 size={30}
-                                                                onClick={() => handleOpenPrint(id)}
+                                                                onClick={() => deleteApartment(number)}
                                                             />
                                                         </td>
                                                     </tr>
                                                 )
                                             })
-                                    } */}
-                                    <tr>
-                                        <td>101</td>
-                                        <td className="occupied">Ocupado</td>
-                                        <td>Doce Pecado</td>
-                                        <td>55,00</td>
-                                        <td>45,00</td>
-                                        <td>35,00</td>
-                                        <td>
-                                            <FiEdit
-                                                className="icon edit-icon"
-                                                size={30}
-                                                onClick={handleOpenModal}
-                                            />
-                                        </td>
-                                        <td>
-                                            <MdDelete
-                                                className="icon delete-icon"
-                                                size={30}
-                                            />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>102</td>
-                                        <td className="available">Livre</td>
-                                        <td>Paraíso</td>
-                                        <td>45,00</td>
-                                        <td>35,00</td>
-                                        <td>25,00</td>
-                                        <td>
-                                            <FiEdit
-                                                className="icon edit-icon"
-                                                size={30}
-                                                onClick={handleOpenModal}
-                                            />
-                                        </td>
-                                        <td>
-                                            <MdDelete
-                                                className="icon delete-icon"
-                                                size={30}
-                                            />
-                                        </td>
-                                    </tr>
+                                    }
                                 </tbody>
                             </table>
                             {
@@ -171,54 +224,60 @@ export default function ModifyApartments() {
             <Modal
                 className="modify-features-modal"
                 open={open}
-                onClose={handleCloseModal}
+                onClose={closeModal}
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
             >
-                <form>
+                <form onSubmit={(ev) => updateApartment(ev)}>
                     <h2>Alteração de dados</h2>
                     <label htmlFor="login">
                         Número
-                    <input
-                        name="number"
-                        required
-                        disabled
-                        value="101"
-                    />
+                        <input
+                            name="number"
+                            disabled
+                            value={number}
+                            onChange={ ({ target }) => setNumber(target.value)}
+                            required
+                        />
                     </label>
 
-                    <select name="type" required>
-                        <option value="" disabled selected hidden>Selecione o tipo</option>
+                    <select name="type" defaultValue={type} required>
                         <option value="PARAISO">Paraíso</option>
                         <option value="DOCE_PECADO">Doce Pecado</option>
                     </select>
 
                     <label htmlFor="password">
                         Preço do apartamento
-                    <input
-                        name="price"
-                        required
-                    />
+                        <input
+                            name="price"
+                            value={price}
+                            onChange={ ({ target }) => setPrice(target.value)}
+                            required
+                        />
                     </label>
 
                     <label htmlFor="password">
                         Preço do pernoite
-                    <input
-                        name="overnight"
-                        required
+                        <input
+                            name="overnight"
+                            value={overnight}
+                            onChange={ ({ target }) => setOvernight(target.value)}
+                            required
                         />
                     </label>
 
                     <label htmlFor="password">
                         Preço da hora extra
-                    <input
-                        name="extraHour"
-                        required
+                        <input
+                            name="extraHour"
+                            value={extraHour}
+                            onChange={ ({ target }) => setExtraHour(target.value)}
+                            required
                         />
                     </label>
 
                     <div className="button-container">
-                        <button type="button" onClick={handleCloseModal}>
+                        <button type="button" onClick={closeModal}>
                             Cancelar
                         </button>
                         <button type="submit">

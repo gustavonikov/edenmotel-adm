@@ -1,7 +1,7 @@
 #main-aside {
     min-height: 100vh;
 
-    width: 260px;
+    width: 255px;
 
     background-color: var(--primary-green);
     
@@ -28,12 +28,15 @@
     border-bottom-right-radius: 30px 30px;
 }
 
-#main-aside a.active-bar {
-    color: var(--secondary-green);
-    background-color: var(--primary-black);
+#main-aside a:hover {
+    transition: 0.4s all;
+
+    background-color: #27b4399f;
 
     border-top-right-radius: 30px 30px;
     border-bottom-right-radius: 30px 30px;
+
+    cursor: pointer;
 }
 
 #main-aside a:first-child {
@@ -48,15 +51,12 @@
     margin-right: 15px;
 }
 
-#main-aside a:hover {
-    transition: 0.4s all;
-
-    background-color: #27b4399f;
+#main-aside a.active-bar {
+    color: var(--secondary-green);
+    background-color: var(--primary-black);
 
     border-top-right-radius: 30px 30px;
     border-bottom-right-radius: 30px 30px;
-
-    cursor: pointer;
 }
 
 #main-aside a.active-bar:hover {

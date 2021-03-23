@@ -1,27 +1,54 @@
 import { useState } from "react";
+
 import Header from "../../../components/GoBackHeader";
 import RegistersFeaturesPage from "../FeaturesPage";
+
+import api from "../../../services/api";
+
+import { errorAlert, successAlert } from "../../../utils/Alerts";
 
 import './styles.css';
 
 export default function AddApartment() {
 
-
-    const [number, setNumber] = useState();
+    const [number, setNumber] = useState('');
     const [type, setType] = useState('');
     const [price, setPrice] = useState('');
     const [overnight, setOvernight] = useState('');
     const [extraHour, setExtraHour] = useState('');
 
-    function handleSubmit() {
+    function addNewApartment(ev) {
+        ev.preventDefault();
+        
+        const data = {
+            number,
+            type,
+            value: price,
+            overnight_stay: overnight,
+            extra_hour: extraHour
+        };
+        
+        api.post('/apartments', data)
+        .then(() => {
+            successAlert('Apartamento cadastrado com sucesso!');
 
+            setNumber('');
+            setType('');
+            setPrice('');
+            setOvernight('');
+            setExtraHour('');
+        })
+        .catch((error) => {
+            console.log(error);
+            errorAlert('Não foi possível concluir seu cadastro no momento!')
+        });
     }
 
     return (
         <RegistersFeaturesPage>
             <div className="registers-add-container">
                 <Header to="/registers" title="Cadastrar apartamento" />
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={(ev) => addNewApartment(ev)}>
                     <label htmlFor="login">
                         Nº do apartamento
                     <input
@@ -51,10 +78,10 @@ export default function AddApartment() {
                     <label htmlFor="password">
                         Preço do pernoite
                     <input
-                            name="overnight"
-                            value={overnight}
-                            onChange={({ target }) => setOvernight(target.value)}
-                            required
+                        name="overnight"
+                        value={overnight}
+                        onChange={({ target }) => setOvernight(target.value)}
+                        required
                         />
                     </label>
 

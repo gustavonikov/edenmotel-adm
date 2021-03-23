@@ -1,10 +1,10 @@
-#history-page .history-container {
+#history-page .history-features-container {
     width: 85%;
 
     margin: 60px auto 0;
 }
 
-#history-page .history-container .filter-wrapper {
+#history-page .history-features-container .filter-wrapper {
     width: 60%;
 
     margin: 0 170px 80px;
@@ -13,30 +13,30 @@
     align-items: center;
 }
 
-#history-page .history-container .filter-wrapper div:first-child {
+#history-page .history-features-container .filter-wrapper div:first-child {
     width: 30%;
 
     align-self: flex-end;
 }
 
-#history-page .history-container .filter-wrapper .filter-inputs {
+#history-page .history-features-container .filter-wrapper .filter-inputs {
     display: flex;
 
     width: 70%;
 }
 
-#history-page .history-container .filter-wrapper .filter-inputs label {
+#history-page .history-features-container .filter-wrapper .filter-inputs label {
     font-size: 18px;
 
     display: flex;
     flex-direction: column;
 }
 
-#history-page .history-container .filter-wrapper .filter-inputs label:first-child {
+#history-page .history-features-container .filter-wrapper .filter-inputs label:first-child {
     margin-right: 30px;
 }
 
-#history-page .history-container .filter-wrapper .filter-inputs input {
+#history-page .history-features-container .filter-wrapper .filter-inputs input {
     width: 230px;
 
     margin-top: 5px;
@@ -50,7 +50,7 @@
     font-size: 16px;
 }
 
-#history-page .history-container .filter-wrapper .filter-inputs button {
+#history-page .history-features-container .filter-wrapper .filter-inputs button {
     width: 170px;
 
     padding: 10px;
@@ -66,11 +66,11 @@
     transition: background .2s;
 }
 
-#history-page .history-container .filter-wrapper .filter-inputs button:hover {
+#history-page .history-features-container .filter-wrapper .filter-inputs button:hover {
     background-color: var(--third-green);
 }
 
-#history-page .history-container header {
+#history-page .history-features-container header {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -81,7 +81,7 @@
     margin: 0 auto 50px;
 }
 
-#history-page .history-container header .search-wrapper {
+#history-page .history-features-container header .search-wrapper {
     display: flex;
     align-items: center;
 
@@ -97,13 +97,13 @@
     transition: transform .2s;
 }
 
-#history-page .history-container .search-wrapper:hover {
+#history-page .history-features-container .search-wrapper:hover {
     transform: scale(1.02);
     border-color: var(--primary-green);
     box-shadow: 0px 0px 1px 2px var(--primary-green);
 }
 
-#history-page .history-container .search-wrapper input {
+#history-page .history-features-container .search-wrapper input {
     width: 300px; 
 
     font-size: 18px; 
@@ -115,7 +115,7 @@
     outline: none;
 }
 
-#history-page .history-container .search-wrapper input:focus {
+#history-page .history-features-container .search-wrapper input:focus {
     box-shadow: none;
     border: none;
 }

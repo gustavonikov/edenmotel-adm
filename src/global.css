@@ -64,6 +64,7 @@ button {
 
     font-weight: 600;
     font-size: 16px;
+    letter-spacing: 1.01px;
 
     color: #fff;
 }
@@ -114,25 +115,24 @@ button {
         display: none;
     }
 
-    #report-page .app-sidebar {
-        display: none;
+    #apartments-print-modal,
+    #closures-print-modal {
+        padding-top: 10px;
     }
 
-    #report-page .report-container {
-        width: 100%;
-        margin: 0;
+    #closures-print-modal .modal-container {
+        break-inside: avoid-page;
     }
 
-    #report-page .report-container h1 {
-        display: none;
-    }
-
-    #report-page .report-container .report-content {
-        border: none;
-        padding: 0;
+    #closures-print-modal {
+        position: static!important;
     }
 
     #history-page {
+        display: none;
+    }
+
+    #main-aside {
         display: none;
     }
 }

@@ -171,61 +171,11 @@
       "product_id": "4"
     }
   ],
-  "sessions": [
+  "session": [
     {
-      "login": "Gustavo",
+      "login": "gustavo",
       "password": "1234",
       "id": 1
-    },
-    {
-      "login": "Gustavo",
-      "password": "1234",
-      "id": 2
-    },
-    {
-      "login": "Gustavo",
-      "password": "1234",
-      "id": 3
-    },
-    {
-      "login": "Gustavo",
-      "password": "1234",
-      "id": 4
-    },
-    {
-      "login": "Gustavo",
-      "password": "1234",
-      "id": 5
-    },
-    {
-      "login": "Gustavo",
-      "password": "1234",
-      "id": 6
-    },
-    {
-      "login": "Gustavo",
-      "password": "1234",
-      "id": 7
-    },
-    {
-      "login": "gustavo",
-      "password": "1234",
-      "id": 8
-    },
-    {
-      "login": "gustavo",
-      "password": "1234",
-      "id": 9
-    },
-    {
-      "login": "Gustavo",
-      "password": "1234",
-      "id": 10
-    },
-    {
-      "login": "Gustavo",
-      "password": "1234",
-      "id": 11
     }
   ],
   "consumoTotal": [
@@ -240,145 +190,226 @@
       "id": 1,
       "status": "LIVRE",
       "number": 101,
-      "type": "DOCE_PECADO"
+      "type": "DOCE_PECADO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 2,
       "status": "LIVRE",
       "number": 102,
-      "type": "DOCE_PECADO"
+      "type": "DOCE_PECADO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 3,
       "status": "OCUPADO",
       "number": 103,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 4,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 5,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 6,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 7,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 8,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 9,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 10,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 11,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 12,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 13,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 14,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 15,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 16,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 17,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 18,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 19,
       "status": "LIVRE",
       "number": 104,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 20,
       "status": "OCUPADO",
       "number": 103,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 21,
       "status": "OCUPADO",
       "number": 103,
-      "type": "PARAISO"
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 22,
       "status": "OCUPADO",
       "number": 103,
-      "type": "DOCE_PECADO"
+      "type": "DOCE_PECADO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 23,
       "status": "OCUPADO",
       "number": 103,
-      "type": "DOCE_PECADO"
+      "type": "DOCE_PECADO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
     },
     {
       "id": 24,
       "status": "OCUPADO",
       "number": 103,
-      "type": "DOCE_PECADO"
+      "type": "DOCE_PECADO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20
+    },
+    {
+      "number": "110",
+      "status": "LIVRE",
+      "type": "PARAISO",
+      "value": 65,
+      "overnight_stay": 30,
+      "extra_hour": 20,
+      "id": 25
     }
   ],
   "free-apartments": [
@@ -395,7 +426,7 @@
       "number": 105
     }
   ],
-  "history": [
+  "admin-history-entries-today": [
     {
       "id": 1,
       "number": "101",
@@ -409,7 +440,8 @@
       "discount": "0,00",
       "lenght_of_stay": "00:45",
       "extraHours": "00:00",
-      "totalPrice": 120
+      "totalPrice": 120,
+      "cashier_id": "1"
     },
     {
       "id": 2,
@@ -424,7 +456,8 @@
       "discount": "0,00",
       "lenght_of_stay": "00:48",
       "extraHours": "00:00",
-      "totalPrice": 122
+      "totalPrice": 122,
+      "cashier_id": "2"
     },
     {
       "id": 3,
@@ -439,24 +472,42 @@
       "discount": "0,00",
       "lenght_of_stay": "00:38",
       "extraHours": "00:00",
-      "totalPrice": 125
+      "totalPrice": 125,
+      "cashier_id": "3"
+    }
+  ],
+  "admin-history-cashiers-today": [
+    {
+      "id": 1,
+      "login": "Maria",
+      "cash_closed_date": "17/03/2021",
+      "cash_closed_time": "00:48"
+    },
+    {
+      "id": 2,
+      "login": "Rosely",
+      "cash_closed_date": "17/03/2021",
+      "cash_closed_time": "00:48"
+    },
+    {
+      "id": 3,
+      "login": "Gabriel Toledo",
+      "cash_closed_date": "17/03/2021",
+      "cash_closed_time": "00:48"
     }
   ],
   "consumption-history": [
     {
-      "id": "1",
       "name": "AGUA MINERAL GRF 330 ML",
       "price": "5.00",
       "quantity": 1
     },
     {
-      "id": "2",
       "name": "REFRIGERANTE LATA 350 ML",
       "price": "5.00",
       "quantity": 1
     },
     {
-      "id": "3",
       "name": "Guarana",
       "price": "5.00",
       "quantity": 1
@@ -464,14 +515,405 @@
     {
       "name": "Guarana",
       "price": "5.00",
-      "quantity": 1,
-      "id": "4"
+      "quantity": 1
     },
     {
       "name": "Guarana",
       "price": "5.00",
-      "quantity": 1,
-      "id": "5"
+      "quantity": 1
     }
+  ],
+  "header-cashier": [
+    {
+      "login": "Maria",
+      "cash_opening_date": "17/03/2021",
+      "cash_opening_time": "12:00",
+      "cash_closed_date": "17/03/2021",
+      "cash_closed_time": "00:00"
+    }
+  ],
+  "total-consumption": [
+    {
+      "consumoTotal": 252,
+      "diariaTotal": 192,
+      "descontoTotal": 10
+    }
+  ],
+  "entry-cashier": [
+    {
+      "id": 1,
+      "number": "101",
+      "nome": "Simão Pedro",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    },
+    {
+      "id": 2,
+      "number": "102",
+      "nome": "João",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    },
+    {
+      "id": 3,
+      "number": "103",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    },
+    {
+      "id": 4,
+      "number": "104",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    },
+    {
+      "id": 5,
+      "number": "105",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    },
+    {
+      "id": 6,
+      "number": "106",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    },
+    {
+      "id": 7,
+      "number": "107",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    },
+    {
+      "id": 8,
+      "number": "108",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    },
+    {
+      "id": 9,
+      "number": "109",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    },
+    {
+      "id": 10,
+      "number": "110",
+      "daily_value": "120.00",
+      "license_plate": "QFD3230",
+      "time": "23:20",
+      "exit_time": "00:48"
+    }
+  ],
+  "products-cashier": [
+    {
+      "id": "1",
+      "name": "AGUA MINERAL GRF 330 ML",
+      "quantity": 1
+    },
+    {
+      "id": "2",
+      "name": "REFRIGERANTE LATA 350 ML",
+      "quantity": 1
+    },
+    {
+      "id": "3",
+      "name": "Guarana",
+      "quantity": 1
+    },
+    {
+      "id": "4",
+      "name": "Biscoito",
+      "quantity": 5
+    },
+    {
+      "id": "5",
+      "name": "Sanduiche",
+      "quantity": 10
+    },
+    {
+      "id": "6",
+      "name": "Tapioca",
+      "quantity": 10
+    },
+    {
+      "id": "7",
+      "name": "Marisco",
+      "quantity": 10
+    }
+  ],
+  "vales-cashier": [
+    {
+      "date": "20/11/2021",
+      "reason": "Abacaxi",
+      "value": 12
+    },
+    {
+      "date": "20/11/2021",
+      "reason": "Banana",
+      "value": 10
+    }
+  ],
+  "total-vales-cashier": [
+    22
+  ],
+  "total-money": [
+    "250.00"
+  ],
+  "total-card": [
+    "285.00"
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "login": "Gustavo",
+      "email": "gustavonikov@gmail.com",
+      "password": "banana"
+    },
+    {
+      "login": "Junior",
+      "email": "junior@gmail.com",
+      "password": "soubatata",
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "login": "Gustavo",
+      "password": "banana",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "login": "Junior",
+      "password": "patocommanteiga"
+    }
+  ],
+  "informed": [
+    {
+      "money": 250,
+      "card": 350
+    }
+  ],
+  "report": [
+    {
+      "id": 1
+    }
+  ],
+  "entries-dashboard": [
+    {
+      "data": [
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 1
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 2
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 3
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 4
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 5
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 6
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 7
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 8
+        },
+
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 9
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 10
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 11
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 12
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 13
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 14
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 15
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 16
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 17
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 18
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 19
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 20
+        },
+
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 21
+        },
+        {
+          "Paraíso": 25,
+          "Doce Pecado": 18,
+          "dia": 22
+        },
+        {
+          "Paraíso": 22,
+          "Doce Pecado": 16,
+          "dia": 23
+        },
+        {
+          "Paraíso": 27,
+          "Doce Pecado": 15,
+          "dia": 24
+        },
+        {
+          "Paraíso": 21,
+          "Doce Pecado": 29,
+          "dia": 25
+        },
+        {
+          "Paraíso": 20,
+          "Doce Pecado": 23,
+          "dia": 26
+        },
+        {
+          "Paraíso": 5,
+          "Doce Pecado": 10,
+          "dia": 27
+        },
+        {
+          "Paraíso": 12,
+          "Doce Pecado": 28,
+          "dia": 28
+        },
+        {
+          "Paraíso": 18,
+          "Doce Pecado": 15,
+          "dia": 29
+        },
+        {
+          "Paraíso": 20,
+          "Doce Pecado": 12,
+          "dia": 30
+        }
+      ],
+      "total_paraiso": 1750.00,
+      "total_doce_pecado": 2250.50
+    }
+  ],
+  "payment-dashboard": [
+    {
+      "name": "Dinheiro",
+      "clients": 200,
+      "total": 1900.00
+    },
+    {
+      "name": "Cartão",
+      "clients": 450,
+      "total": 2100.00
+    }
+  ],
+  "consumptions-dashboard": [
+    [
+      { "name": "REFRIGERANTE LATA 300ML", "sum": 100 },
+      { "name": "AGUA MINERAL GRF 300ML", "sum": 50 },
+      { "name": "CERVEJA 450ML", "sum": 50 },
+      { "name": "SANDUICHE MISTO", "sum": 40 },
+      { "name": "CAFE", "sum": 28 },
+      { "name": "CHOCOLATE BARRA 210G", "sum": 25 },
+      { "name": "CHAMPANHE", "sum": 20 },
+      { "name": "HAMBURGUER X-TUDO", "sum": 18 },
+      { "name": "BISCOITO TRELOSO 10UN", "sum": 15 },
+      { "name": "TAPIOCA SIMPLES", "sum": 10 }
+    ],
+    [
+      { "name": "REFRIGERANTE LATA 300ML", "sum": 9 },
+      { "name": "AGUA MINERAL GRF 300ML", "sum": 8 },
+      { "name": "CERVEJA 450ML", "sum": 7 },
+      { "name": "SANDUICHE MISTO", "sum": 6 },
+      { "name": "CAFE", "sum": 5 },
+      { "name": "CHOCOLATE BARRA 210G", "sum": 4 },
+      { "name": "CHAMPANHE", "sum": 3 },
+      { "name": "HAMBURGUER X-TUDO", "sum": 2 },
+      { "name": "BISCOITO TRELOSO 10UN", "sum": 1 },
+      { "name": "TAPIOCA SIMPLES", "sum": 0 }
+    ]
   ]
 }

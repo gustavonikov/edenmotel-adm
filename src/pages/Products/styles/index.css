@@ -5,7 +5,7 @@
 }
 
 #products-page .products-container {
-    width: 88%;
+    width: 86%;
 
     margin: 60px auto 0;
 }
@@ -102,7 +102,6 @@
     border-spacing: 0px;
 
     box-shadow: 0px 6px 12px var(--shadow-color);
-
 }
 
 #products-page #products-table th {

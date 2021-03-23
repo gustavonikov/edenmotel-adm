@@ -11,13 +11,13 @@ export default function Login() {
     
     const history = useHistory();
 
-    async function handleLogin(){''
+    async function handleLogin() {
         try {
-            const response = await api.post('/sessions',{login, password});
+            const response = await api.post('/session-admin',{ login, password });
             
-            localStorage.setItem('cashierId', response.data.id);
+            localStorage.setItem('adminId', response.data.id);
 
-            history.push('/register');
+            history.push('/dashboard');
         } catch (err) {
             console.log(err);
         }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import { FiEdit } from 'react-icons/fi';
@@ -9,15 +9,35 @@ import SimpleLoader from '../../../components/SimpleLoader';
 import GoBack from "../../../components/GoBackHeader";
 import RegistersFeaturesPage from "../FeaturesPage";
 
+import { confirmAlert, errorAlert, successAlert } from '../../../utils/Alerts';
+
+import api from '../../../services/api';
+
 import './styles/main.css';
 import './styles/modal.css';
 
 
 export default function ModifyUsers() {
-    const [hasError, setHasError] = useState(false);
     const [users, setUsers] = useState([]);
+    const [id, setId] = useState('');
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [hasError, setHasError] = useState(false);
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        api.get('/users')
+        .then((res) => {
+            setUsers(res.data);
+            setIsLoading(false);
+        })
+        .catch((error) => {
+            setHasError(true);
+            setIsLoading(false);
+            console.log(error)
+        });
+    }, [])
 
     function handleSearch() {
         let td; let i; let txtValue;
@@ -41,11 +61,52 @@ export default function ModifyUsers() {
         }
     }
 
-    function handleOpenModal() {
-        setOpen(true);
+    function updateUser(ev) {
+        ev.preventDefault();
+
+        const user = {
+            id,
+            login,
+            password
+        };
+
+        api.put(`users/${id}/${login}/${password}`)
+        .then(() => {
+            successAlert('Usuário alterado com sucesso!');
+            setUsers(users.map((us) => {
+                if (us.login === user.login) {
+                    return {
+                        ...us, 
+                        ...user
+                    }
+                }
+                return us;
+            }));
+            closeModal();
+        })
+        .catch((error) => {
+            errorAlert('Não foi possível alterar os dados!');
+            console.log(error);
+            closeModal();
+        });
     }
 
-    function handleCloseModal() {
+    function deleteUser(userId) {
+        confirmAlert(`Deseja realmente excluir "${login}"?`, 'Essa ação não poderá ser revertida.')
+        .then((yes) => {
+            if (yes) {
+                api.delete(`/users/${userId}`)
+                .then(() => {
+                    setUsers(users.filter(({ id }) => userId !== id));
+                }).catch((error) => {
+                    errorAlert('Não foi possível deletar o admin!');
+                    console.log(error);
+                });
+            }
+        });
+    }
+    
+    function closeModal() {
         setOpen(false);
     }
 
@@ -81,66 +142,41 @@ export default function ModifyUsers() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* {
+                                    {
                                         users === 0 ?
                                             <p className="no-data">
                                                 Não há usuários.
                                             </p>
                                             :
-                                            users.map(({ id, number }) => {
+                                            users.map(({ id, login, password }) => {
                                                 return (
                                                     <tr key={id}>
-                                                        <td>{number}</td>
+                                                        <td>{login}</td>
                                                         <td>
                                                             <FiEdit
                                                                 size={30}
                                                                 className="icon edit-icon"
-                                                                onClick={handleOpenModal}
+                                                                onClick={() => {
+                                                                    setId(id);
+                                                                    setLogin(login);
+                                                                    setPassword(password);
+                                                                    console.log(password);
+
+                                                                    setOpen(true);
+                                                                }}
                                                             />
                                                         </td>
                                                         <td>
                                                             <MdDelete
-                                                                className="print-icon"
+                                                                className="icon delete-icon"
                                                                 size={30}
-                                                                onClick={() => handleOpenPrint(id)}
+                                                                onClick={() => deleteUser(id)}
                                                             />
                                                         </td>
                                                     </tr>
                                                 )
                                             })
-                                    } */}
-                                    <tr>
-                                        <td>Gabriel Toledo</td>
-                                        <td>
-                                            <FiEdit
-                                                className="icon edit-icon"
-                                                size={30}
-                                                onClick={handleOpenModal}
-                                            />
-                                        </td>
-                                        <td>
-                                            <MdDelete
-                                                className="icon delete-icon"
-                                                size={30}
-                                            />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Raissa Toledo</td>
-                                        <td>
-                                            <FiEdit
-                                                className="icon edit-icon"
-                                                size={30}
-                                                onClick={handleOpenModal}
-                                            />
-                                        </td>
-                                        <td>
-                                            <MdDelete
-                                                className="icon delete-icon"
-                                                size={30}
-                                            />
-                                        </td>
-                                    </tr>
+                                    }
                                 </tbody>
                             </table>
                             {
@@ -156,16 +192,17 @@ export default function ModifyUsers() {
             <Modal
                 className="modify-features-modal"
                 open={open}
-                onClose={handleCloseModal}
+                onClose={closeModal}
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
             >
-                <form>
+                <form onSubmit={(ev) => updateUser(ev)}>
                     <h2>Alteração de senha</h2>
                     <label htmlFor="login">
                         Login
                         <input
                             name="login"
+                            value={login}
                             required
                             disabled
                         />
@@ -175,6 +212,8 @@ export default function ModifyUsers() {
                         Nova senha
                         <input
                             name="password"
+                            value={password}
+                            onChange={({ target }) => setPassword(target.value)}
                             type="password"
                             minLength="4"
                             required
@@ -182,7 +221,7 @@ export default function ModifyUsers() {
                     </label>
 
                     <div className="button-container">
-                        <button type="button" onClick={handleCloseModal}>
+                        <button type="button" onClick={closeModal}>
                             Cancelar
                         </button>
                         <button type="submit">

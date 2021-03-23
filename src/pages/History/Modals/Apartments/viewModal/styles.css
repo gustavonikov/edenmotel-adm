@@ -1,0 +1,93 @@
+#apartments-view-modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#apartments-view-modal .modal-container {
+	display: flex;
+	flex-direction: column;
+
+	padding: 20px;
+
+	width: 535px;
+}
+
+#apartments-view-modal .close-modal {
+	align-self: flex-end;
+
+	color: var(--primary-red);
+
+	margin: 10px 0;
+
+	cursor: pointer;
+}
+
+#apartments-view-modal .modal-content {
+    width: 450px;
+    height: auto;
+    
+    background-color: #fff;
+	
+	padding: 20px;
+
+	line-height: 22px;
+
+	font-size: 16px;
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: 600;
+
+	max-height: calc(100vh - 20px);
+    overflow-y: auto;
+}
+
+#apartments-view-modal > div:nth-child(1) {
+    background-color: rgba(0, 0, 0, 0.897)!important;
+}
+
+#apartments-view-modal .modal-content:focus {
+	border: none;
+	outline: none;
+}
+
+#apartments-view-modal header {
+	padding-bottom: 10px;
+}
+
+#apartments-view-modal footer {
+	padding-top: 10px;
+}
+
+#apartments-view-modal table {
+	margin: 5px 0px;
+}
+
+#apartments-view-modal table thead tr th,
+#apartments-view-modal table tr td:not(:first-child) {
+	text-align: center;
+}
+
+#apartments-view-modal table thead tr th {
+	padding-bottom: 5px;
+}
+
+#apartments-view-modal table thead tr th:first-child {
+    text-align: left;
+    width: 300px;
+}
+
+#apartments-view-modal table thead tr th:nth-child(2),
+#apartments-view-modal table tbody tr td:nth-child(2) {
+	padding-right: 15px;
+}
+
+#apartments-view-modal strong {
+	margin-bottom: 5px;
+}
+
+#apartments-view-modal .separation-line {
+	margin: 8px 0;
+
+	border: 0;
+	border-bottom: 1.9px dashed var(--primary-black);
+}

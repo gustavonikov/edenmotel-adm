@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import { FiEdit } from 'react-icons/fi';
@@ -11,12 +11,31 @@ import RegistersFeaturesPage from "../FeaturesPage";
 
 import './styles/main.css';
 import './styles/modal.css';
+import api from '../../../services/api';
+import { confirmAlert, errorAlert, successAlert } from '../../../utils/Alerts';
 
 export default function ModifyAdmins() {
-    const [hasError, setHasError] = useState(false);
-    const [admin, setAdmin] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [admins, setAdmins] = useState([]);
+    const [id, setId] = useState('');
+    const [login, setLogin] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [open, setOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [hasError, setHasError] = useState(false);
+
+    useEffect(() => {
+        api.get('/admins')
+        .then((res) => {
+            setAdmins(res.data);
+            setIsLoading(false);
+        })
+        .catch((error) => {
+            setHasError(true);
+            setIsLoading(false);
+            console.log(error)
+        });
+    }, [])
 
     function handleSearch() {
         let td; let i; let txtValue;
@@ -40,12 +59,54 @@ export default function ModifyAdmins() {
         }
     }
 
-    function handleOpenModal() {
-        setOpen(true);
+    function closeModal() {
+        setOpen(false);
     }
 
-    function handleCloseModal() {
-        setOpen(false);
+    function updateAdmin(ev) {
+        ev.preventDefault();
+        const admin = {
+            id,
+            login,
+            email,
+            password
+        };
+
+        api.put(`/admins/${id}/${login}/${email}/${password}`)
+        .then(() => {
+            successAlert('Admin alterado com sucesso!');
+            setAdmins(admins.map((adm) => {
+                if (adm.login === admin.login) {
+                    return {
+                        ...adm, 
+                        ...admin
+                    }
+                }
+                return adm;
+            }));
+            
+            closeModal();
+        })
+        .catch((error) => {
+            errorAlert('Não foi possível alterar os dados!');
+            console.log(error);
+            closeModal();
+        });
+    }
+
+    function deleteAdmin(adminId, login) {
+        confirmAlert(`Deseja realmente excluir "${login}"?`, 'Essa ação não poderá ser revertida.')
+        .then((yes) => {
+            if (yes) {
+                api.delete(`/admins/${adminId}`)
+                .then(() => {
+                    setAdmins(admins.filter(({ id }) => adminId !== id));
+                }).catch((error) => {
+                    errorAlert('Não foi possível deletar o admin!');
+                    console.log(error);
+                });
+            }
+        });
     }
 
     return (
@@ -81,68 +142,42 @@ export default function ModifyAdmins() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* {
+                                    {
                                         admins === 0 ?
                                             <p className="no-data">
                                                 Não há administradores.
                                             </p>
                                             :
-                                            admins.map(({ id, number }) => {
+                                            admins.map(({ id, login, email, password }) => {
                                                 return (
                                                     <tr key={id}>
-                                                        <td>{number}</td>
+                                                        <td>{login}</td>
+                                                        <td>{email}</td>
                                                         <td>
                                                             <FiEdit
                                                                 size={30}
                                                                 className="icon edit-icon"
-                                                                onClick={handleOpenModal}
+                                                                onClick={() => {
+                                                                    setId(id);
+                                                                    setLogin(login);
+                                                                    setEmail(email);
+                                                                    setPassword(password);
+
+                                                                    setOpen(true);
+                                                                }}
                                                             />
                                                         </td>
                                                         <td>
                                                             <MdDelete
-                                                                className="print-icon"
+                                                                className="icon delete-icon"
                                                                 size={30}
-                                                                onClick={() => handleOpenPrint(id)}
+                                                                onClick={() => deleteAdmin(id, login)}
                                                             />
                                                         </td>
                                                     </tr>
                                                 )
                                             })
-                                    } */}
-                                    <tr>
-                                        <td>Matheus Costa</td>
-                                        <td>matheuscosta@example.com</td>
-                                        <td>
-                                            <FiEdit
-                                                className="icon edit-icon"
-                                                size={30}
-                                                onClick={handleOpenModal}
-                                            />
-                                        </td>
-                                        <td>
-                                            <MdDelete
-                                                className="icon delete-icon"
-                                                size={30}
-                                            />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gustavo Chaves</td>
-                                        <td>gustavochaves@example.com</td>
-                                        <td>
-                                            <FiEdit
-                                                className="icon edit-icon"
-                                                size={30}
-                                                onClick={handleOpenModal}
-                                            />
-                                        </td>
-                                        <td>
-                                            <MdDelete
-                                                className="icon delete-icon"
-                                                size={30}
-                                            />
-                                        </td>
-                                    </tr>
+                                    }
                                 </tbody>
                             </table>
                             {
@@ -158,18 +193,19 @@ export default function ModifyAdmins() {
             <Modal
                 className="modify-features-modal"
                 open={open}
-                onClose={handleCloseModal}
+                onClose={closeModal}
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
             >
-                <form>
+                <form onSubmit={(ev) => updateAdmin(ev)}>
                     <h2>Alteração de dados</h2>
                     <label htmlFor="login">
                         Login
                         <input
                             name="login"
-                            required
+                            value={login}
                             disabled
+                            required
                         />
                     </label>
 
@@ -178,6 +214,8 @@ export default function ModifyAdmins() {
                         <input
                             name="e-mail"
                             type="email"
+                            value={email}
+                            onChange={({ target }) => setEmail(target.value)}
                             required
                         />
                     </label>
@@ -188,12 +226,14 @@ export default function ModifyAdmins() {
                             name="password"
                             type="password"
                             minLength="4"
+                            value={password}
+                            onChange={({ target }) => setPassword(target.value)}
                             required
                         />
                     </label>
 
                     <div className="button-container">
-                        <button type="button" onClick={handleCloseModal}>
+                        <button type="button" onClick={closeModal}>
                             Cancelar
                         </button>
                         <button type="submit">

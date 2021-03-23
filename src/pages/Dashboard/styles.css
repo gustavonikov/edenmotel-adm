@@ -10,11 +10,26 @@
     margin: 30px auto;
     padding: 20px;
 
-    /* box-shadow: 0 4px 10px var(--shadow-color); */
-
     border-radius: 10px;
 
     position: relative;
+}
+
+#dashboard-page .dashboard-container .loading {
+    width: 400px;
+
+    margin: 50px auto;
+    padding: 50px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dashboard-page .dashboard-container .loading h2 {
+    font-size: 28px;
+
+    margin-bottom: 50px;
 }
 
 #dashboard-page .dashboard-container .select-month {
@@ -124,7 +139,7 @@
 }
 
 #dashboard-page .dashboard-container .dashboard-items .clients-info .items .pie-chart-container {
-    padding: 20px 10px;
+    padding: 15px 10px;
 
     margin-left: 30px;
 
@@ -151,17 +166,21 @@
 
     font-size: 18px;
 
-    margin-left: 15px;
+    margin-left: 5px;
+    padding-bottom: 15px;
 }
 
 #dashboard-page .dashboard-container .dashboard-items .clients-info .infos {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     font-size: 18px;
 
-    width: 70%;
+    padding-top: 10px;
+    padding-left: 20px;
+
+    width: 62.5%;
 }
 
 
@@ -172,19 +191,25 @@
 }
 
 #dashboard-page .dashboard-container .dashboard-items .info {
-    padding: 10px;
+    padding: 10px 10px 0px 0px;
 
     line-height: 1.5;
 }
 
-#dashboard-page .dashboard-container .dashboard-items .info h3.paradise,
-#dashboard-page .dashboard-container .dashboard-items h3.money {
+#dashboard-page .dashboard-container .dashboard-items .info h3.paradise { 
     color: var(--primary-green);
 }
 
-#dashboard-page .dashboard-container .dashboard-items .info h3.sweet-sin,
-#dashboard-page .dashboard-container .dashboard-items h3.card  {
+#dashboard-page .dashboard-container .dashboard-items h3.money {
+    color: #cdca32;
+}
+
+#dashboard-page .dashboard-container .dashboard-items .info h3.sweet-sin {
     color: var(--orange);
+}
+
+#dashboard-page .dashboard-container .dashboard-items h3.card {
+    color: #ca4016;
 }
 
 #dashboard-page .dashboard-container .dashboard-items .collected-from-consumption {
@@ -243,7 +268,7 @@
 }
 
 #dashboard-page .dashboard-container .dashboard-items .table-link .go-to-icon {
-    animation: leftToRight ease-in-out 1.3s infinite;
+    animation: leftToRightDashboard ease-in-out 1.3s infinite;
 
     color: var(--primary-green);
 }
@@ -252,7 +277,7 @@
     animation: none;
 }
 
-@keyframes leftToRight {
+@keyframes leftToRightDashboard {
     0% {
         transform: translateX(-10px);
         opacity: 0;

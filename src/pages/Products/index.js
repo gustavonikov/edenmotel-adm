@@ -5,24 +5,18 @@ import { MdDelete } from 'react-icons/md';
 import { IoMdAddCircle } from 'react-icons/io';
 
 import SideBar from '../../components/SideBar';
-import api from '../../services/api';
-import { confirmAlert, errorAlert } from '../../utils/Alerts';
 import SimpleLoader from '../../components/SimpleLoader';
 import ErrorMessage from '../../components/ErrorMessage';
+
+import { confirmAlert, errorAlert } from '../../utils/Alerts';
+import { adjustValue } from '../../utils/adjustValue';
+import api from '../../services/api';
 
 import './styles/index.css';
 import './styles/addProductsModal.css';
 import './styles/updateQuantityModal.css';
 
 export default function Products() {
-    const asideActiveBars = {
-        dashboard: false,
-        products: true,
-        history: false,
-        registers: false,
-        report: false,
-    };
-
     const [products, setProducts] = useState([]);
     const [openAddProductModal, setOpenAddProductModal] = useState(false);
     const [openUpdateProductModal, setOpenUpdateProductModal] = useState(false);
@@ -148,7 +142,7 @@ export default function Products() {
 
     return (
         <div id="products-page">
-            <SideBar barsState={asideActiveBars} />
+            <SideBar />
 
             {
                 hasError ?
@@ -191,38 +185,42 @@ export default function Products() {
                             <tbody>
                             {
                                 products.length > 0
-                                    && products.map(({ id, name, price, quantity }) => (
-                                        <tr key={id}>
-                                            <td>{name}</td>
-                                            <td>{price}</td>
-                                            <td>{quantity}</td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    className="button"
-                                                    onClick={() => {
-                                                        setProductUpdate({
-                                                            id,
-                                                            name,
-                                                            price,
-                                                            quantity,
-                                                        });
-                                                        handleUpdateProductModalOpen();
-                                                    }}
-                                                >
-                                                Adicionar
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <MdDelete
-                                                    size={25}
-                                                    title="Clique pra excluir o produto"
-                                                    className="delete-product-icon"
-                                                    onClick={() => handleDeleteProduct(id, name)}
-                                                />
-                                            </td>
-                                        </tr>
-                                    ))
+                                    && products.map(({ id, name, price, quantity }) => {
+                                        const adjustedPrice = adjustValue(price);
+                                        
+                                        return (
+                                            <tr key={id}>
+                                                <td>{name}</td>
+                                                <td>{adjustedPrice}</td>
+                                                <td>{quantity}</td>
+                                                <td>
+                                                    <button
+                                                        type="button"
+                                                        className="button"
+                                                        onClick={() => {
+                                                            setProductUpdate({
+                                                                id,
+                                                                name,
+                                                                adjustedPrice,
+                                                                quantity,
+                                                            });
+                                                            handleUpdateProductModalOpen();
+                                                        }}
+                                                    >
+                                                    Adicionar
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <MdDelete
+                                                        size={25}
+                                                        title="Clique pra excluir o produto"
+                                                        className="delete-product-icon"
+                                                        onClick={() => handleDeleteProduct(id, name)}
+                                                    />
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
                             }
                             </tbody>
                         }

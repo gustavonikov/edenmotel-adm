@@ -11,14 +11,6 @@ import api from '../../../services/api';
 import './styles.css';
 
 export default function ConsumptionTable() {
-    const asideActiveBars = {
-        dashboard: true,
-        products: false,
-        history: false,
-        registers: false,
-        report: false,
-    };
-
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
@@ -47,7 +39,7 @@ export default function ConsumptionTable() {
 
     return (
         <div id="consumption-table-page">
-            <SideBar barsState={asideActiveBars} />
+            <SideBar />
             {
                 hasError ?
                     <ErrorMessage />

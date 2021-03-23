@@ -46,6 +46,10 @@
     border: 1px solid #b3aeae;
 }
 
+.registers-add-container form p {
+    color: var(--primary-red);
+}
+
 .registers-add-container form button {
     width: 160px;
     height: 60px;

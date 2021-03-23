@@ -1,0 +1,128 @@
+#closures-print-modal {
+	display: flex;
+	justify-content: center;
+}
+
+#closures-print-modal > div:nth-child(1) {
+    background-color: rgba(0, 0, 0, 0.897)!important;
+}
+
+#closures-print-modal .modal-container {
+	width: 300px;
+    height: auto;
+    
+	background-color: transparent;
+	border-radius: 8px;
+	
+	padding: 12px;
+
+	line-height: 15px;
+
+	font-size: 10px;
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: 600;
+}
+
+#closures-print-modal .modal-container header {
+	padding-bottom: 10px;
+}
+
+#closures-print-modal .modal-container span {
+	margin-left: 8px;
+}
+
+#closures-print-modal .modal-container span#total-entries {
+	margin-left: 5px;
+}
+
+#closures-print-modal .modal-container table {
+	margin: 5px 0px;
+}
+
+#closures-print-modal .modal-container table th,
+#closures-print-modal .modal-container table td {
+	padding: 0 8px;
+	
+	text-align: left;
+}
+
+#closures-print-modal .modal-container table th:first-child,
+#closures-print-modal .modal-container table td:first-child {
+	padding-left: 0px;
+}
+
+#closures-print-modal .modal-container table thead tr th {
+	padding-bottom: 5px;
+}
+
+#closures-print-modal .modal-container table#entries th:last-child,
+#closures-print-modal .modal-container table#entries td:last-child {
+	padding-left: 7px;
+	text-align: right;
+}
+
+#closures-print-modal .modal-container table#products th:first-child,
+#closures-print-modal .modal-container table#products td:first-child {
+	width: 205px;
+}
+
+#closures-print-modal .modal-container table#products th:last-child,
+#closures-print-modal .modal-container table#products td:last-child {
+	width: 40px;
+
+	text-align: right;
+}
+
+#closures-print-modal .modal-container table#tickets th:nth-child(1),
+#closures-print-modal .modal-container table#tickets td:nth-child(1) {
+	width: 60px;
+}
+
+#closures-print-modal .modal-container table#tickets th:nth-child(2),
+#closures-print-modal .modal-container table#tickets td:nth-child(2) {
+	width: 130px
+}
+
+#closures-print-modal .modal-container table#tickets th:nth-child(3),
+#closures-print-modal .modal-container table#tickets td:nth-child(3) {
+	width: 50px;
+	text-align: center;
+}
+
+#closures-print-modal .modal-container table#accounting th, 
+#closures-print-modal .modal-container table#accounting td {
+	padding: 0 4px;
+}
+
+#closures-print-modal .modal-container table#accounting td:nth-child(2) {
+	text-align: right;
+}
+
+#closures-print-modal .modal-container table#accounting td:nth-child(3),
+#closures-print-modal .modal-container table#accounting td:nth-child(4) {
+	text-align: center;
+}
+
+#closures-print-modal .modal-container table#accounting th:first-child, 
+#closures-print-modal .modal-container table#accounting td:first-child {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+#closures-print-modal .modal-container table#accounting th:last-child {
+	text-align: center;
+}
+
+#closures-print-modal .modal-container table#accounting th:last-child, 
+#closures-print-modal .modal-container table#accounting td:last-child {
+	padding-left: 0px;
+}
+
+#closures-print-modal .modal-container footer .warning-accountable {
+	margin-left: 5px;
+}
+
+#closures-print-modal .modal-container footer span {
+	margin-left: 3px;
+	margin-right: 20px;
+}

@@ -1,0 +1,70 @@
+#apartments-print-modal {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+#apartments-print-modal > div:nth-child(1) {
+    background-color: rgba(0, 0, 0, 0.897)!important;
+}
+
+#apartments-print-modal .modal-container {
+    width: 320px;
+    height: auto;
+    
+    background-color: transparent;
+
+	border-radius: 8px;
+	
+	padding: 12px;
+
+	line-height: 15px;
+
+	font-size: 10.5px;
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: 600;
+}
+
+#apartments-print-modal .modal-container:focus {
+	border: none;
+	outline: none;
+}
+
+#apartments-print-modal header {
+	padding-bottom: 10px;
+}
+
+#apartments-print-modal footer {
+	padding-top: 10px;
+}
+
+#apartments-print-modal table {
+	margin: 5px 0px;
+}
+
+#apartments-print-modal table thead tr th,
+#apartments-print-modal table tr td:not(:first-child) {
+	text-align: center;
+}
+
+#apartments-print-modal table thead tr th {
+	padding-bottom: 5px;
+}
+
+#apartments-print-modal table thead tr th:first-child {
+    text-align: left;
+	width: 185px;
+}
+
+#apartments-print-modal table thead tr th:nth-child(2) {
+	padding-right: 7px;
+}
+
+#apartments-print-modal table tbody tr td:nth-child(2) {
+    padding-right: 10px;
+	text-align: right;
+}
+
+#apartments-print-modal strong {
+	margin-bottom: 5px;
+}

@@ -160,7 +160,7 @@ export default function ModifyApartments() {
                                 </thead>
                                 <tbody>
                                     {
-                                        apartments === 0 ?
+                                        !isLoading && apartments === 0 ?
                                             <p className="no-data">
                                                 Não há apartamentos.
                                             </p>

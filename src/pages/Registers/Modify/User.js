@@ -143,7 +143,7 @@ export default function ModifyUsers() {
                                 </thead>
                                 <tbody>
                                     {
-                                        users === 0 ?
+                                        !isLoading && users === 0 ?
                                             <p className="no-data">
                                                 Não há usuários.
                                             </p>

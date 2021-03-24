@@ -143,7 +143,7 @@ export default function ModifyAdmins() {
                                 </thead>
                                 <tbody>
                                     {
-                                        admins === 0 ?
+                                        !isLoading && admins === 0 ?
                                             <p className="no-data">
                                                 Não há administradores.
                                             </p>

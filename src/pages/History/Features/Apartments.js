@@ -179,7 +179,7 @@ export default function ApartmentsHistory() {
                             </thead>
                             <tbody>
                                 {
-                                    entriesHistory === 0 ?
+                                    entriesHistory === 0 && !isLoading ?
                                     <tr className="no-history">
                                         Ainda não há nenhum apartamento.
                                     </tr>

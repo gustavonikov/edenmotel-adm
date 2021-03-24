@@ -195,7 +195,7 @@ export default function Dashboard() {
                                         <div className="info">
                                             <h3 className="total-clients">Total</h3>
                                             <p>{totalEntriesParadise + totalEntriesSweetSin} entradas</p>
-                                            <p>R$ {Number(totalValueParadise) + Number(totalValueSweetSin)}</p>
+                                            <p>R$ {Intl.NumberFormat({ style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 }).format(parseFloat(totalValueParadise) + parseFloat(totalValueSweetSin))}</p>
                                         </div>
                                     </div>
                                 </div>

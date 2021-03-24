@@ -41,8 +41,8 @@ export default function Dashboard() {
             setIsLoading(false);
 
             setRoomEntriesPerType(res.data.data);
-            setTotalEntriesParadise(adjustValue(res.data.paradise));
-            setTotalEntriesSweetSin(adjustValue(res.data.sweet));
+            setTotalEntriesParadise(res.data.paradise);
+            setTotalEntriesSweetSin(res.data.sweet);
             setTotalValueParadise(adjustValue(res.data.payment_paraiso));
             setTotalValueSweetSin(adjustValue(res.data.payment_doce));
         })
@@ -194,8 +194,8 @@ export default function Dashboard() {
                                         </div>
                                         <div className="info">
                                             <h3 className="total-clients">Total</h3>
-                                            <p>650 entradas</p>
-                                            <p>R$ 4.000,00 </p>
+                                            <p>{totalEntriesParadise + totalEntriesSweetSin} entradas</p>
+                                            <p>R$ {totalValueParadise + totalValueSweetSin}</p>
                                         </div>
                                     </div>
                                 </div>

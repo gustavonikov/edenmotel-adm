@@ -58,7 +58,7 @@ export default function ClosureReportsHistory() {
             api.get(`/total-vales-cashier/${cashierId}`),
             api.get(`/total-money/${cashierId}`),
             api.get(`/total-card/${cashierId}`),
-            api.get(`/informed/${cashierId}/${closureDate}`)
+            api.get(`/informed/${cashierId}?date=${closureDate}`)
         ])
         .then((res) => {
             setHeader(res[0].data);
@@ -91,7 +91,7 @@ export default function ClosureReportsHistory() {
             api.get(`/total-vales-cashier/${cashierId}`),
             api.get(`/total-money/${cashierId}`),
             api.get(`/total-card/${cashierId}`),
-            api.get(`/informed/${cashierId}/${closureDate}`)
+            api.get(`/informed/${cashierId}?date=${closureDate}`)
         ])
         .then((res) => {
             setHeader(res[0].data);

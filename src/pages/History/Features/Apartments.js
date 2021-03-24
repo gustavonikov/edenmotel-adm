@@ -41,8 +41,9 @@ export default function ApartmentsHistory() {
 
     function handleOpenView(apt_id) {
         const apt_history = entriesHistory.find(({ id }) => id === apt_id);
+        console.log(apt_history);
         const cashierId = apt_history.cashier_id;
-        setPrintData(apt_history)
+        setPrintData(apt_history);
  
         api.get(`/consumption-history/${cashierId}/${apt_id}`)
         .then((res) => {
@@ -183,7 +184,7 @@ export default function ApartmentsHistory() {
                                         Ainda não há nenhum apartamento.
                                     </tr>
                                     :
-                                    entriesHistory.map(({ id, cashier_id, number, payment_date, payment_moment }) => {
+                                    entriesHistory.map(({ id, number, payment_date, payment_moment }) => {
                                         return (
                                             <tr key={id}>
                                                 <td>{number}</td>
@@ -193,14 +194,14 @@ export default function ApartmentsHistory() {
                                                     <AiFillEye 
                                                         className="print-icon" 
                                                         size={30} 
-                                                        onClick={() => handleOpenView(cashier_id)}
+                                                        onClick={() => handleOpenView(id)}
                                                     />
                                                 </td>
                                                 <td>
                                                     <RiPrinterFill
                                                         className="print-icon"
                                                         size={30}
-                                                        onClick={() => handleOpenPrint(cashier_id)}
+                                                        onClick={() => handleOpenPrint(id)}
                                                     />
                                                 </td>
                                             </tr>

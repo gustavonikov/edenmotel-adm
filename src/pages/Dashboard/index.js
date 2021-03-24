@@ -43,6 +43,7 @@ export default function Dashboard() {
         .catch((error) => {
             console.log(error);
             
+            setIsLoading(false);
             setHasError(true);
         }); 
     }, [filteredMonth]);

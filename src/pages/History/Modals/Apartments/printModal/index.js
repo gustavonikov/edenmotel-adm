@@ -48,20 +48,20 @@ const ApartmentsPrintModal = ({ openPrintModal, handlePrintModal, printData, con
                 </table>
             ----------------------------------------<br />
             Total à pagar<br />
-                <span>Consumo total.......: {Intl.NumberFormat({ style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 },).format(Number(printData.totalPrice))}</span>
+                <span>Consumo total.......: {Intl.NumberFormat({ style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 },).format(Number(printData.consumption))}</span>
                 <br />
                 <span>Valor do Apartamento: {Intl.NumberFormat({ style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 },).format(Number(printData.daily_value))}</span>
                 <br />
                 <br />
                 {
                     !printData.discount ?
-                        <span> Valor da conta......: {Intl.NumberFormat({ style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 },).format(Number(printData.daily_value) + Number(printData.totalPrice))}</span>
+                        <span> Valor da conta......: {Intl.NumberFormat({ style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 },).format(Number(printData.daily_value) + Number(printData.consumption))}</span>
                         :
                         <>
                             <span> Valor do desconto...: {Intl.NumberFormat({ style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 },).format(printData.discount)}</span>
                             <br />
                             <span> Valor da conta......: {
-                                Intl.NumberFormat({ style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 },).format((Number(printData.daily_value) + Number(printData.totalPrice)) - printData.discount)
+                                Intl.NumberFormat({ style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 },).format((Number(printData.daily_value) + Number(printData.consumption)) - printData.discount)
                             }</span>
                         </>
                 }

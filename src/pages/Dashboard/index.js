@@ -36,11 +36,11 @@ export default function Dashboard() {
     useEffect(() => {
         api.get(`/entries-dashboard/${filteredMonth}`) // 
         .then((res) => {
-            setRoomEntriesPerType(res.data[0].data);
-            setTotalEntriesParadise(adjustValue(Number(res.data[0].total_paraiso)));
-            setTotalEntriesSweetSin(adjustValue(Number(res.data[0].total_doce_pecado)));
-
             setIsLoading(false);
+
+            setRoomEntriesPerType(res.data.data);
+            setTotalEntriesParadise(adjustValue(Number(res.data.payment_paraiso)));
+            setTotalEntriesSweetSin(adjustValue(Number(res.data.payment_doce)));
         })
         .catch((error) => {
             console.log(error);

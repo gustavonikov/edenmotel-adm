@@ -29,8 +29,8 @@ export default function ApartmentsHistory() {
     useEffect(() => {
         api.get('/admin-history-entries-today') 
             .then((res) => {
-                setEntriesHistory(res.data);
                 setIsLoading(false);
+                setEntriesHistory(res.data);
             })
             .catch((error) => {
                 console.log(error);

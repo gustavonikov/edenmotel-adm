@@ -36,13 +36,13 @@ const ClosuresPrintModal = ({ openPrintModal, handlePrintModal, header, closingV
                         </tr>
                     </thead>
                     <tbody>
-                        {entries.map(({ id, number, time, exit_time, license_plate, daily_value }) => (
+                        {entries.map(({ id, number, time, exit_time, license_plate, daily_value, consumption }) => (
                             <tr key={id}>
                                 <td>{number}</td>
                                 <td>{time}</td>
                                 <td>{exit_time}</td>
                                 <td>{license_plate.toUpperCase()}</td>
-                                <td>{adjustValue(parseFloat(daily_value) + parseFloat(closingValue.consumoTotal))}</td>
+                                <td>{adjustValue(parseFloat(daily_value) + parseFloat(consumption))}</td>
                             </tr>
                         ))}
                     </tbody>

@@ -129,8 +129,6 @@ export default function Products() {
         confirmAlert(`Deseja realmente excluir "${productName}"?`, 'Essa ação não poderá ser revertida.').then((yes) => {
             if (yes) {
                 api.delete(`/products/${productId}`).then(() => {
-                    console.log('Deletado com sucesso!');
-
                     setProducts(products.filter(({ id }) => productId !== id));
                 }).catch((error) => {
                     errorAlert('Não foi possível deletar o produto!');

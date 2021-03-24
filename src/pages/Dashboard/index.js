@@ -195,7 +195,7 @@ export default function Dashboard() {
                                         <div className="info">
                                             <h3 className="total-clients">Total</h3>
                                             <p>{totalEntriesParadise + totalEntriesSweetSin} entradas</p>
-                                            <p>R$ {totalValueParadise + totalValueSweetSin}</p>
+                                            <p>R$ {Number(totalValueParadise) + Number(totalValueSweetSin)}</p>
                                         </div>
                                     </div>
                                 </div>

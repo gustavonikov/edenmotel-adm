@@ -35,8 +35,8 @@ export default function Dashboard() {
         api.get(`/entries-dashboard/${filteredMonth}`) // 
         .then((res) => {
             setRoomEntriesPerType(res.data[0].data);
-            setTotalEntriesParadise(adjustValue(res.data[0].total_paraiso));
-            setTotalEntriesSweetSin(adjustValue(res.data[0].total_doce_pecado));
+            setTotalEntriesParadise(adjustValue(Number(res.data[0].total_paraiso)));
+            setTotalEntriesSweetSin(adjustValue(Number(res.data[0].total_doce_pecado)));
 
             setIsLoading(false);
         })
@@ -154,6 +154,18 @@ export default function Dashboard() {
                                                     </PieChart>
                                                 </ResponsiveContainer>
                                                 <div className="pie-chart-infos">
+                                                    {
+                                                        clientsPaymentPerType.map(({ name, total }) => {
+                                                            const totalPrice = adjustValue(total);
+
+                                                            return (
+                                                                <div className="info">
+                                                                    <h3 className="money">{name}</h3>
+                                                                    <p>R$ {totalPrice} </p>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
                                                     <div className="info">
                                                         <h3 className="money">Dinheiro</h3>
                                                         <p>R$ 1.900,00</p>
@@ -169,7 +181,7 @@ export default function Dashboard() {
                                     <div className="infos">
                                         <div className="info">
                                             <h3 className="paradise">Paraíso</h3>
-                                            <p>{300} entradas</p>
+                                            <p>300 entradas</p>
                                             <p>R$ {totalEntriesParadise}</p>
                                         </div>
                                         <div className="info">

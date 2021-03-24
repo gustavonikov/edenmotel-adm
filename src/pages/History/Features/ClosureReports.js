@@ -62,7 +62,7 @@ export default function ClosureReportsHistory() {
         ])
         .then((res) => {
             setHeader(res[0].data);
-            setClosingValue(res[1].data[0]);
+            setClosingValue(res[1].data);
             setEntries(res[2].data);
             setProducts(res[3].data);
             setClosingTicket(res[4].data);
@@ -95,7 +95,7 @@ export default function ClosureReportsHistory() {
         ])
         .then((res) => {
             setHeader(res[0].data);
-            setClosingValue(res[1].data[0]);
+            setClosingValue(res[1].data);
             setEntries(res[2].data);
             setProducts(res[3].data);
             setClosingTicket(res[4].data);

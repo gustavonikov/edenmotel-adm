@@ -18,12 +18,14 @@ export default function Dashboard() {
     const colors = ['#cdca32', '#ca4016'];
 
     const [filteredMonth, setFilteredMonth] = useState(month);
-    const [mostConsumedProducts, setMostConsumedProducts] = useState([]);
-    const [lessConsumedProducts, setLessConsumedProducts] = useState([]);
     const [roomEntriesPerType, setRoomEntriesPerType] = useState([]);
     const [totalEntriesParadise, setTotalEntriesParadise] = useState(0);
     const [totalEntriesSweetSin, setTotalEntriesSweetSin] = useState(0);
     const [clientsPaymentPerType, setClientsPaymentPerType] = useState([]);
+    const [mostConsumedProducts, setMostConsumedProducts] = useState([]);
+    const [lessConsumedProducts, setLessConsumedProducts] = useState([]);
+    const [totalCollectedFromProducts, setTotalCollectedFromProducts] = useState('');
+    const [totalProductsQuantity, setTotalProductsQuantity] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
     
@@ -61,9 +63,14 @@ export default function Dashboard() {
     useEffect(() => {
         api.get(`/consumptions-dashboard/${filteredMonth}`)
         .then((res) => {
-            setMostConsumedProducts(res.data[0]);
-            setLessConsumedProducts(res.data[1]);
+            setMostConsumedProducts(res.data.top10most);
+            setLessConsumedProducts(res.data.top10less);
+            setTotalCollectedFromProducts(adjustValue(Number(res.data.total)));
+            setTotalProductsQuantity(res.data.quantity);
         })
+        .catch((error) => {
+            console.log(error);
+        });
     }, [filteredMonth]);
 
     return (
@@ -161,19 +168,11 @@ export default function Dashboard() {
                                                             return (
                                                                 <div className="info">
                                                                     <h3 className="money">{name}</h3>
-                                                                    <p>R$ {totalPrice} </p>
+                                                                    <p>R$ {totalPrice}</p>
                                                                 </div>
                                                             )
                                                         })
                                                     }
-                                                    <div className="info">
-                                                        <h3 className="money">Dinheiro</h3>
-                                                        <p>R$ 1.900,00</p>
-                                                    </div>
-                                                    <div className="info">
-                                                        <h3 className="card">Cartão</h3>
-                                                        <p>R$ 2.100,00</p>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -268,8 +267,8 @@ export default function Dashboard() {
                                 <div className="collected-from-consumption">
                                     <div className="collected">
                                             <h3 className="total-clients">Total</h3>
-                                            <p>450 produtos</p>
-                                            <p>R$ 1.320,00</p>
+                                            <p>{totalProductsQuantity} produtos</p>
+                                            <p>R$ {totalCollectedFromProducts}</p>
                                     </div>                                 
                                     {/* <Link to="dashboard/consumption-table" className="table-link">
                                         <p>Ver consumo de todos os produtos</p>

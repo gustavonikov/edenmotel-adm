@@ -63,10 +63,10 @@ export default function Dashboard() {
     useEffect(() => {
         api.get(`/consumptions-dashboard/${filteredMonth}`)
         .then((res) => {
-            setMostConsumedProducts(res.data.top10most);
-            setLessConsumedProducts(res.data.top10less);
-            setTotalCollectedFromProducts(adjustValue(Number(res.data.total)));
-            setTotalProductsQuantity(res.data.quantity);
+            setMostConsumedProducts(res.data[0].top10most);
+            setLessConsumedProducts(res.data[0].top10less);
+            setTotalCollectedFromProducts(adjustValue(Number(res.data[0].total)));
+            setTotalProductsQuantity(res.data[0].quantity);
         })
         .catch((error) => {
             console.log(error);
@@ -166,8 +166,8 @@ export default function Dashboard() {
                                                             const totalPrice = adjustValue(total);
 
                                                             return (
-                                                                <div className="info">
-                                                                    <h3 className="money">{name}</h3>
+                                                                <div key={name} className="info">
+                                                                    <h3 className={name === 'Dinheiro' ? 'money' : 'card'}>{name}</h3>
                                                                     <p>R$ {totalPrice}</p>
                                                                 </div>
                                                             )

@@ -21,6 +21,8 @@ export default function Dashboard() {
     const [roomEntriesPerType, setRoomEntriesPerType] = useState([]);
     const [totalEntriesParadise, setTotalEntriesParadise] = useState(0);
     const [totalEntriesSweetSin, setTotalEntriesSweetSin] = useState(0);
+    const [totalValueParadise, setTotalValueParadise] = useState();
+    const [totalValueSweetSin, setTotalValueSweetSin] = useState()
     const [clientsPaymentPerType, setClientsPaymentPerType] = useState([]);
     const [mostConsumedProducts, setMostConsumedProducts] = useState([]);
     const [lessConsumedProducts, setLessConsumedProducts] = useState([]);
@@ -39,8 +41,10 @@ export default function Dashboard() {
             setIsLoading(false);
 
             setRoomEntriesPerType(res.data.data);
-            setTotalEntriesParadise(adjustValue(Number(res.data.payment_paraiso)));
-            setTotalEntriesSweetSin(adjustValue(Number(res.data.payment_doce)));
+            setTotalEntriesParadise(adjustValue(res.data.paradise));
+            setTotalEntriesSweetSin(adjustValue(res.data.sweet));
+            setTotalValueParadise(adjustValue(res.data.payment_paraiso));
+            setTotalValueSweetSin(adjustValue(res.data.payment_doce));
         })
         .catch((error) => {
             console.log(error);
@@ -180,13 +184,13 @@ export default function Dashboard() {
                                     <div className="infos">
                                         <div className="info">
                                             <h3 className="paradise">Paraíso</h3>
-                                            <p>300 entradas</p>
-                                            <p>R$ {totalEntriesParadise}</p>
+                                            <p>{totalEntriesParadise} entradas</p>
+                                            <p>R$ {totalValueParadise}</p>
                                         </div>
                                         <div className="info">
                                             <h3 className="sweet-sin">Doce Pecado</h3>
-                                            <p>350 entradas</p>
-                                            <p>R$ {totalEntriesSweetSin}</p>
+                                            <p>{totalEntriesSweetSin} entradas</p>
+                                            <p>R$ {totalValueSweetSin}</p>
                                         </div>
                                         <div className="info">
                                             <h3 className="total-clients">Total</h3>

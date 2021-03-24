@@ -171,11 +171,16 @@
       "product_id": "4"
     }
   ],
-  "session": [
+  "session-admin": [
     {
       "login": "gustavo",
       "password": "1234",
       "id": 1
+    },
+    {
+      "login": "gustavo",
+      "password": "1234",
+      "id": 2
     }
   ],
   "consumoTotal": [
@@ -761,7 +766,6 @@
           "Doce Pecado": 18,
           "dia": 8
         },
-
         {
           "Paraíso": 25,
           "Doce Pecado": 18,
@@ -822,7 +826,6 @@
           "Doce Pecado": 18,
           "dia": 20
         },
-
         {
           "Paraíso": 25,
           "Doce Pecado": 18,
@@ -874,46 +877,106 @@
           "dia": 30
         }
       ],
-      "total_paraiso": 1750.00,
-      "total_doce_pecado": 2250.50
+      "total_paraiso": 1750,
+      "total_doce_pecado": 2250.5
     }
   ],
   "payment-dashboard": [
     {
       "name": "Dinheiro",
       "clients": 200,
-      "total": 1900.00
+      "total": 1900
     },
     {
       "name": "Cartão",
       "clients": 450,
-      "total": 2100.00
+      "total": 2100
     }
   ],
   "consumptions-dashboard": [
     [
-      { "name": "REFRIGERANTE LATA 300ML", "sum": 100 },
-      { "name": "AGUA MINERAL GRF 300ML", "sum": 50 },
-      { "name": "CERVEJA 450ML", "sum": 50 },
-      { "name": "SANDUICHE MISTO", "sum": 40 },
-      { "name": "CAFE", "sum": 28 },
-      { "name": "CHOCOLATE BARRA 210G", "sum": 25 },
-      { "name": "CHAMPANHE", "sum": 20 },
-      { "name": "HAMBURGUER X-TUDO", "sum": 18 },
-      { "name": "BISCOITO TRELOSO 10UN", "sum": 15 },
-      { "name": "TAPIOCA SIMPLES", "sum": 10 }
+      {
+        "name": "REFRIGERANTE LATA 300ML",
+        "sum": 100
+      },
+      {
+        "name": "AGUA MINERAL GRF 300ML",
+        "sum": 50
+      },
+      {
+        "name": "CERVEJA 450ML",
+        "sum": 50
+      },
+      {
+        "name": "SANDUICHE MISTO",
+        "sum": 40
+      },
+      {
+        "name": "CAFE",
+        "sum": 28
+      },
+      {
+        "name": "CHOCOLATE BARRA 210G",
+        "sum": 25
+      },
+      {
+        "name": "CHAMPANHE",
+        "sum": 20
+      },
+      {
+        "name": "HAMBURGUER X-TUDO",
+        "sum": 18
+      },
+      {
+        "name": "BISCOITO TRELOSO 10UN",
+        "sum": 15
+      },
+      {
+        "name": "TAPIOCA SIMPLES",
+        "sum": 10
+      }
     ],
     [
-      { "name": "REFRIGERANTE LATA 300ML", "sum": 9 },
-      { "name": "AGUA MINERAL GRF 300ML", "sum": 8 },
-      { "name": "CERVEJA 450ML", "sum": 7 },
-      { "name": "SANDUICHE MISTO", "sum": 6 },
-      { "name": "CAFE", "sum": 5 },
-      { "name": "CHOCOLATE BARRA 210G", "sum": 4 },
-      { "name": "CHAMPANHE", "sum": 3 },
-      { "name": "HAMBURGUER X-TUDO", "sum": 2 },
-      { "name": "BISCOITO TRELOSO 10UN", "sum": 1 },
-      { "name": "TAPIOCA SIMPLES", "sum": 0 }
+      {
+        "name": "REFRIGERANTE LATA 300ML",
+        "sum": 9
+      },
+      {
+        "name": "AGUA MINERAL GRF 300ML",
+        "sum": 8
+      },
+      {
+        "name": "CERVEJA 450ML",
+        "sum": 7
+      },
+      {
+        "name": "SANDUICHE MISTO",
+        "sum": 6
+      },
+      {
+        "name": "CAFE",
+        "sum": 5
+      },
+      {
+        "name": "CHOCOLATE BARRA 210G",
+        "sum": 4
+      },
+      {
+        "name": "CHAMPANHE",
+        "sum": 3
+      },
+      {
+        "name": "HAMBURGUER X-TUDO",
+        "sum": 2
+      },
+      {
+        "name": "BISCOITO TRELOSO 10UN",
+        "sum": 1
+      },
+      {
+        "name": "TAPIOCA SIMPLES",
+        "sum": 0
+      }
     ]
   ]
 }

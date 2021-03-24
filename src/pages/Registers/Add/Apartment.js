@@ -60,7 +60,7 @@ export default function AddApartment() {
                     </label>
 
                     <select name="type" value={type} onChange={({ target }) => setType(target.value)} required>
-                        <option value="" disabled selected hidden>Selecione o tipo</option>
+                        <option value="" disabled hidden>Selecione o tipo</option>
                         <option value="PARAISO">Paraíso</option>
                         <option value="DOCE_PECADO">Doce Pecado</option>
                     </select>

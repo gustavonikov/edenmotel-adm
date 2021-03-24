@@ -176,9 +176,11 @@ export default function Products() {
                         </thead>
                         {
                             !isLoading && products.length === 0 ?
-                            <p className="no-products">
-                                Ainda não há produtos cadastrados
-                            </p>
+                                <tbody>
+                                    <p className="no-products">
+                                        Ainda não há produtos cadastrados
+                                    </p>
+                                </tbody>
                             :
                             <tbody>
                             {

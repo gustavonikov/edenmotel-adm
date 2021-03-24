@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 import SideBar from '../../../components/SideBar';
@@ -6,14 +6,14 @@ import SimpleLoader from '../../../components/SimpleLoader';
 import ErrorMessage from '../../../components/ErrorMessage';
 import GoBack from '../../../components/GoBackHeader';
 
-import api from '../../../services/api';
+/* import api from '../../../services/api'; */
 
 import './styles.css';
 
 export default function ConsumptionTable() {
-    const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [hasError, setHasError] = useState(false);
+    const [products] = useState([]);
+    const [isLoading] = useState(false);
+    const [hasError] = useState(false);
 
     function handleSearch() {
         let td; let i; let txtValue;
@@ -69,11 +69,13 @@ export default function ConsumptionTable() {
                                 </tr>
                             </thead>
                             {
-                                /* !isLoading && products.length === 0 ?
-                                <p className="no-consumption">
-                                    Ainda não há produtos consumidos.
-                                </p>
-                                : */
+                                !isLoading && products.length === 0 ?
+                                    <tbody>
+                                        <p className="no-consumption">
+                                        Sem produtos.
+                                        </p>
+                                    </tbody>
+                                :
                                 <tbody>
                                     <tr>
                                         <td>PRESERVATIVO GRATUITO</td>

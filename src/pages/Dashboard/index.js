@@ -36,7 +36,7 @@ export default function Dashboard() {
     }, [filteredMonth]);
 
     useEffect(() => {
-        api.get(`/entries-dashboard`) // /${filteredMonth}
+        api.get(`/entries-dashboard/${filteredMonth}`) 
         .then((res) => {
             setIsLoading(false);
 
@@ -55,7 +55,7 @@ export default function Dashboard() {
     }, [filteredMonth]);
 
     useEffect(() => {
-        api.get(`/payment-dashboard`)
+        api.get(`/payment-dashboard/${filteredMonth}`)
         .then((res) => {
             setClientsPaymentPerType(res.data);
         })
@@ -65,7 +65,7 @@ export default function Dashboard() {
     }, [filteredMonth]);
 
     useEffect(() => {
-        api.get(`/consumptions-dashboard`)
+        api.get(`/consumptions-dashboard/${filteredMonth}`)
         .then((res) => {
             setMostConsumedProducts(res.data[0].top10most);
             setLessConsumedProducts(res.data[0].top10less);

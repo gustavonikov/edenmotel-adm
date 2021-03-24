@@ -65,7 +65,7 @@ export default function Dashboard() {
         .then((res) => {
             setMostConsumedProducts(res.data[0].top10most);
             setLessConsumedProducts(res.data[0].top10less);
-            setTotalCollectedFromProducts(adjustValue(Number(res.data[0].total)));
+            setTotalCollectedFromProducts(adjustValue(res.data[0].total));
             setTotalProductsQuantity(res.data[0].quantity);
         })
         .catch((error) => {

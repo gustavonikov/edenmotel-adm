@@ -9,8 +9,8 @@
 }
 
 #update-quantity-modal .modal-container {
-    width: 430px;
-    height: 260px;
+    width: 470px;
+    height: 300px;
     
     background-color: #fff;
 
@@ -27,9 +27,21 @@
     font-size: 24px;
 }
 
+#update-quantity-modal .modal-container .group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 95%;
+}
+
 #update-quantity-modal .modal-container label {
-    margin-top: 60px;
-    margin-bottom: 50px;
+    margin-top: 40px;
+
+    display: flex;
+    align-items: center;
+
+    width: 95%;
 }
 
 #update-quantity-modal .modal-container strong {
@@ -39,17 +51,26 @@
 }
 
 #update-quantity-modal .modal-container input {
-    width: 75px;
-
     padding: 10px 3px 10px 10px;
 
     font-size: 16px;
 
-    text-align: center;
-
     outline: none;
     border: 1px solid #b3aeae;
     border-radius: 10px;
+}
+
+#update-quantity-modal .modal-container label > input {
+    width: 100%;
+}
+
+#update-quantity-modal .modal-container .group label > input {
+    width: 110px;
+}
+
+
+#update-quantity-modal .modal-container .group label:first-child {
+    margin-right: 30px;
 }
 
 #update-quantity-modal .modal-container input:focus {
@@ -71,6 +92,8 @@
 
     font-size: 18px;
     font-weight: 600;
+
+    margin-top: 50px;
 
     border-radius: 6px;
     

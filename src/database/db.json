@@ -181,6 +181,16 @@
       "login": "gustavo",
       "password": "1234",
       "id": 2
+    },
+    {
+      "login": "gustavo",
+      "password": "1234",
+      "id": 3
+    },
+    {
+      "login": "gustavo",
+      "password": "1234",
+      "id": 4
     }
   ],
   "consumoTotal": [

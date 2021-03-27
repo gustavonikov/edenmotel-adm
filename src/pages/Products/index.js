@@ -23,8 +23,10 @@ export default function Products() {
     const [productName, setProductName] = useState('');
     const [productPrice, setProductPrice] = useState('');
     const [productQuantity, setProductQuantity] = useState(1);
-    const [productUpdate, setProductUpdate] = useState({});
-    const [newQuantity, setNewQuantity] = useState(0);
+    const [productId, setProductId] = useState();
+    const [updatedProductName, setUpdatedProductName] = useState('');
+    const [updatedProductPrice, setUpdatedProductPrice] = useState('');
+    const [updatedProductQuantity, setUpdatedProductQuantity] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
 
@@ -41,10 +43,33 @@ export default function Products() {
         });
     }, []);
 
+    
+    function handleSearch() {
+        let td; let i; let txtValue;
+
+        const input = document.getElementById('products-input');
+        const filter = input.value.toUpperCase();
+        const table = document.getElementById('products-table');
+        const tr = table.getElementsByTagName('tr');
+
+        for (i = 0; i < tr.length; i += 1) {
+            [td = 0] = tr[i].getElementsByTagName('td');
+
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
+        }
+    }
+
     function handleAddProductModalOpen() {
         setProductName('');
         setProductPrice('');
-        setProductQuantity(0);
+        setProductQuantity(1);
         setOpenAddProductModal(true);
     }
 
@@ -52,9 +77,12 @@ export default function Products() {
         setOpenAddProductModal(false);
     }
 
-    function handleUpdateProductModalOpen() {
+    function handleUpdateProductModalOpen(id, name, price, quantity) {
+        setProductId(id);
+        setUpdatedProductName(name);
+        setUpdatedProductPrice(price);
+        setUpdatedProductQuantity(quantity);
         setOpenUpdateProductModal(true);
-        setNewQuantity(0);
     }
 
     function handleUpdateProductModalClose() {
@@ -81,39 +109,19 @@ export default function Products() {
         });
     }
 
-    function handleSearch() {
-        let td; let i; let txtValue;
 
-        const input = document.getElementById('products-input');
-        const filter = input.value.toUpperCase();
-        const table = document.getElementById('products-table');
-        const tr = table.getElementsByTagName('tr');
-
-        for (i = 0; i < tr.length; i += 1) {
-            [td = 0] = tr[i].getElementsByTagName('td');
-
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = '';
-                } else {
-                    tr[i].style.display = 'none';
-                }
-            }
-        }
-    }
-
-    function handleUpdateQuantity(ev, quantidade) {
+    function handleUpdateQuantity(ev) {
         ev.preventDefault();
 
-        const quantidadeUpdated = Number(quantidade) + Number(productUpdate.quantity);
-
         const updatedProduct = {
-            ...productUpdate,
-            quantity: quantidadeUpdated,
+            id: productId,
+            name: updatedProductName,
+            price: updatedProductPrice,
+            quantity: updatedProductQuantity,
         };
 
-        api.put(`/products/${productUpdate.id}`, updatedProduct).then(() => {
+        api.put(`/products/${productId}?name=${updatedProductName}&price=${updatedProductPrice}&quantity=${updatedProductQuantity}`)
+        .then(() => {
             setOpenUpdateProductModal(false);
             
             setProducts([...products, updatedProduct]);
@@ -167,9 +175,9 @@ export default function Products() {
                         <thead>
                             <tr className="header">
                                 <th>Nome do produto</th>
-                                <th>Valor</th>
+                                <th>Preço</th>
                                 <th>Quantidade em estoque</th>
-                                <th>Alterar estoque</th>
+                                <th />
                                 {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                                 <th />
                             </tr>
@@ -198,16 +206,10 @@ export default function Products() {
                                                         type="button"
                                                         className="button"
                                                         onClick={() => {
-                                                            setProductUpdate({
-                                                                id,
-                                                                name,
-                                                                adjustedPrice,
-                                                                quantity,
-                                                            });
-                                                            handleUpdateProductModalOpen();
+                                                            handleUpdateProductModalOpen(id, name, adjustedPrice, quantity);
                                                         }}
                                                     >
-                                                    Adicionar
+                                                    Atualizar
                                                     </button>
                                                 </td>
                                                 <td>
@@ -246,11 +248,11 @@ export default function Products() {
                 <form className="modal-container" onSubmit={(ev) => handleAddProduct(ev, productName, productPrice, productQuantity)}>
                     <h2>Adicionar Produto</h2>
                     <div className="modal-product-content">
-                        <label htmlFor="nome">
+                        <label htmlFor="add-name">
                             <strong>Nome do Produto</strong>
                             <input
                                 className="product-modal-primary-input"
-                                name="nome"
+                                name="add-name"
                                 type="text"
                                 value={productName}
                                 onChange={({ target }) => setProductName(target.value)}
@@ -258,22 +260,22 @@ export default function Products() {
                             />
                         </label>
                         <div className="second-line">
-                            <label htmlFor="nome">
-                                <strong>Valor</strong>
+                            <label htmlFor="add-price">
+                                <strong>Preço</strong>
                                 <input
                                     className="product-modal-input bigger"
-                                    name="nome"
+                                    name="add-price"
                                     type="text"
                                     value={productPrice}
                                     onChange={({ target }) => setProductPrice(target.value)}
                                     required
                                 />
                             </label>
-                            <label htmlFor="nome">
+                            <label htmlFor="add-quantity">
                                 <strong>Quantidade</strong>
                                 <input
                                     className="product-modal-input smaller"
-                                    name="nome"
+                                    name="add-quantity"
                                     type="number"
                                     value={productQuantity}
                                     onChange={({ target }) => setProductQuantity(target.value)}
@@ -297,28 +299,51 @@ export default function Products() {
                 open={openUpdateProductModal}
                 onClose={handleUpdateProductModalClose}
             >
-                <div className="modal-container">
-                    <h2>{productUpdate.name}</h2>
-                    <label htmlFor="alterar-quantidade">
-                        <strong>Quantidade</strong>
+                <form className="modal-container" onSubmit={(ev) => handleUpdateQuantity(ev)}>
+                    <label htmlFor="update-name">
+                        <strong>Nome</strong>
                         <input
                             className="product-modal-primary-input"
-                            name="alterar-quantidade"
-                            type="number"
-                            value={newQuantity}
-                            onChange={({ target }) => setNewQuantity(target.value)}
+                            name="update-name"
+                            type="text"
+                            value={updatedProductName}
+                            disabled
                             required
                         />
                     </label>
+                   <div className="group">
+                        <label htmlFor="update-price">
+                            <strong>Preço</strong>
+                            <input
+                                className="product-modal-primary-input"
+                                name="update-price"
+                                type="text"
+                                value={updatedProductPrice}
+                                onChange={({ target }) => setUpdatedProductPrice(target.value)}
+                                required
+                            />
+                        </label>
+                        <label htmlFor="update-quantity">
+                            <strong>Quantidade</strong>
+                            <input
+                                className="product-modal-primary-input"
+                                name="update-quantity"
+                                type="number"
+                                value={updatedProductQuantity}
+                                onChange={({ target }) => setUpdatedProductQuantity(target.value)}
+                                required
+                            />
+                    </label>
+                   </div>
                     <div className="button-container">
                         <button type="button" className="button" onClick={handleUpdateProductModalClose}>
-                                Cancelar
+                            Cancelar
                         </button>
-                        <button type="submit" className="button" onClick={(ev) => handleUpdateQuantity(ev, newQuantity)}>
-                                Adicionar
+                        <button type="submit" className="button">
+                            Adicionar
                         </button>
                     </div>
-                </div>
+                </form>
             </Modal>
         </div>
     );

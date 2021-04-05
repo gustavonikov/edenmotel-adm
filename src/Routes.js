@@ -14,13 +14,16 @@ import History from './pages/History';
 import ApartmentsHistory from './pages/History/Features/Apartments';
 import ClosureReportsHistory from './pages/History/Features/ClosureReports';
 import Dashboard from './pages/Dashboard';
-import ConsumptionTable from './pages/Dashboard/ConsumptionTable';
+/* import ConsumptionTable from './pages/Dashboard/ConsumptionTable'; */
+import Tolerance from './pages/Tolerance';
 
 export default function Routes() {
     return (
         <Router>
             <Switch>
                 <Route path="/" component={Login} exact />
+                <Route path="/dashboard" component={Dashboard} exact />
+                {/* <Route path="/dashboard/consumption-table" component={ConsumptionTable} /> */}
                 <Route path="/products" component={Products} />
                 <Route path="/registers" component={Registers} exact />
                 <Route path="/registers/add-apartment" component={AddApartment}/>
@@ -33,8 +36,7 @@ export default function Routes() {
                 <Route path="/history" component={History} exact />
                 <Route path="/history/apartments" component={ApartmentsHistory} />
                 <Route path="/history/closure-reports" component={ClosureReportsHistory} />
-                <Route path="/dashboard" component={Dashboard} exact />
-                <Route path="/dashboard/consumption-table" component={ConsumptionTable} />
+                <Route path="/tolerance" component={Tolerance} />
             </Switch>
         </Router>
     );

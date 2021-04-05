@@ -116,7 +116,7 @@
   "products": [
     {
       "id": "1",
-      "name": "AGUA MINERAL GRF 330 ML",
+      "name": "AGUA MINERAL 300 ML",
       "price": "5.00",
       "quantity": 1
     },
@@ -191,6 +191,16 @@
       "login": "gustavo",
       "password": "1234",
       "id": 4
+    },
+    {
+      "login": "gustavo",
+      "password": "1234",
+      "id": 5
+    },
+    {
+      "login": "gustavo",
+      "password": "1234",
+      "id": 6
     }
   ],
   "consumoTotal": [

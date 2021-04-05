@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { MdShoppingCart, MdAddBox, MdDashboard } from 'react-icons/md';
 import { FaPowerOff, FaHistory } from 'react-icons/fa';
 import { HiDocumentReport } from 'react-icons/hi';
+import { GiSandsOfTime } from 'react-icons/gi';
 
 import api from '../../services/api';
 import { errorAlert } from '../../utils/Alerts';
@@ -50,7 +51,11 @@ export default function SideBar() {
             <Link to="/report" report="" >
                 <HiDocumentReport size={30} className="icon-report" />
                 Relatório      
-            </Link> 
+            </Link>
+            <Link to="/tolerance" tolerance="" >
+                <GiSandsOfTime size={30} className="icon-report" />
+                Tolerância      
+            </Link>  
             <Link to="/" onClick={handleLogout}>
                 <FaPowerOff size={30} className="icon"/>
                 Deslogar        

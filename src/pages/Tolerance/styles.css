@@ -1,0 +1,74 @@
+#tolerance-page {
+    background-color: var(--background-page);
+    min-height: 100vh;
+    display: flex;
+}
+
+.tolerance-page-container {
+    margin: 80px auto;
+
+    width: 1000px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tolerance-page-container p {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.tolerance-page-container p strong {
+    font-size: 22px;
+}
+
+.tolerance-page-container p strong span {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.tolerance-page-container p strong:first-child {
+    margin-right: 40px;
+}
+
+.tolerance-page-container label {
+    font-size: 18px;
+
+    margin-top: 15px;
+}
+
+.tolerance-page-container input {
+    width: 100px;
+
+    margin-top: 35px;
+    margin-left: 20px;
+    padding: 10px;
+
+    border-radius: 10px;
+
+    outline: none;
+    border: 1px solid #b3aeae;
+
+    font-size: 18px;
+    text-align: center;
+}
+
+.tolerance-page-container button {
+    margin-top: 50px;
+
+    padding: 20px 40px;
+
+    font-size: 20px;
+
+    background: var(--primary-green);
+
+    box-shadow: inset 0 0 10px 1px var(--third-green), 0px 5px 10px 0px var(--third-green);
+    transition: background .2s;
+}
+
+.tolerance-page-container button:hover {
+    background-color: var(--third-green);
+}

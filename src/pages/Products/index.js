@@ -109,7 +109,6 @@ export default function Products() {
         });
     }
 
-
     function handleUpdateQuantity(ev) {
         ev.preventDefault();
 
@@ -123,8 +122,10 @@ export default function Products() {
         api.put(`/products/${productId}?name=${updatedProductName}&price=${updatedProductPrice}&quantity=${updatedProductQuantity}`)
         .then(() => {
             setOpenUpdateProductModal(false);
+
+            const newProductsList = products.filter(({ id }) => id !== productId);
             
-            setProducts([...products, updatedProduct]);
+            setProducts([...newProductsList, updatedProduct]);
         }).catch((error) => {
             console.log(error);
 
@@ -307,7 +308,7 @@ export default function Products() {
                             name="update-name"
                             type="text"
                             value={updatedProductName}
-                            disabled
+                            onChange={({ target }) => setUpdatedProductName(target.value)}
                             required
                         />
                     </label>
